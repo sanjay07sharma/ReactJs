@@ -1,0 +1,19 @@
+{
+  "name": "reactjs",
+  "version": "1.0.0",
+  "description": "inital lession ",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanjay07sharma/ReactJs.git"
+  },
+  "author": "Sanjay Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanjay07sharma/ReactJs/issues"
+  },
+  "homepage": "https://github.com/sanjay07sharma/ReactJs#readme"
+}

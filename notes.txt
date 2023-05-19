@@ -1,1 +1,626 @@
 package.json is configuration
+
+
+node module
+
+transitive dependecies - our poriject is depended onn parcel
+parlcel in trun isdependednt onother dependecies
+
+
+package.json --> dependeices our prohject need
+package-lock.json ---> lock of all transeint dependencies.
+
+if i ahve packege.json and package-loc.json it will recreate all the dependencies your project need.
+
+what ever you can regenerate you dont have to to git.
+in our prorject what can we recreate?? ---> node_modules.
+
+
+
+npx parcel index.html  ---->  parcel creeated a server , hoisted the app on server.
+
+meaning --> npx = executing a package, parcel goes the the osurce and build a developmental build over port.
+
+
+dont get react to your project through cdn links, instead getit through npm commands 
+why?? fecthing from cdn is costly operations.
+so it beetter to make a network call have it on your node modukeules.
+
+install react to package
+npm install react
+npm install react-dom
+
+Now you need to import React, React-DOM from you node_module
+
+run and it will throw error
+
+
+# Parcel
+    Dev Build
+    Local Server
+    HMR = Hot Module Replacement.
+    File Watching Algorithm written in c++
+    Caching - Faster Builds.
+    Image Optimization
+    Minification.
+    Bundling.
+    Compressing.
+    Consistent Hashing --- read about it parcel.com 
+    Code splitting
+    Differential Bundling. - support older browser
+    Diagnostics
+    Error Handling
+    HTTPs
+    Tree Shaking- removes unused code
+    Different buld for dev and prod build = 
+
+    npx parcel build index.html ---> this wil thoe errro
+    @parcel/namer-default: Target "main" declares an output file path of "App.js" which does not match the compiled bundle type "html".
+
+    /home/odoo/workshop/works/Reactjs/ReactJs/package.json:5:11
+        4 |   "description": "inital lession ",
+    > 5 |   "main": "App.js",
+    >   |           ^^^^^^^^ Did you mean "App.html"?
+        6 |   "scripts": {
+        7 |     "test": "jest"
+
+    💡 Try changing the file extension of "main" in package.json.
+  
+  
+ it 
+ 
+ 
+ 
+ 
+ browserslist to package.json
+
+
+
+http hhtps?? why  a hype?
+
+
+What I EMMET?
+    Ans. Emmet is a plugin for text editors and integrated development environments (IDEs) that allows you to write HTML and CSS code faster and more efficiently. It provides a shorthand syntax for writing code, which can greatly speed up your workflow.
+    Emmet works by expanding abbreviations that you type into full HTML or CSS code. For example, if you type ul>li*3, Emmet will expand this to:
+
+    <ul>
+
+        <li></li>
+
+        <li></li>
+
+        <li></li>
+
+    </ul>
+    This can save a lot of time and typing when you're working on a large project.
+    Emmet is supported by many popular text editors and IDEs, including Visual Studio Code, Sublime Text, Atom, and Brackets. It's easy to install and use, and there are many resources available online to help you get started with using Emmet.
+
+
+DIFEEERENCE BETWEEN LIBRARY AND FRAMEWORK?
+
+    Ans. While both libraries and frameworks are used to provide reusable code and functionality, there are some key differences between the two.
+    A library is a collection of pre-written code that can be used to perform specific tasks or functions. It usually consists of a set of functions or classes that you can use in your code to perform tasks without having to write the code from scratch. Libraries are often used to provide functionality such as data manipulation, image processing, or file I/O. You use the library by calling its functions or classes from your code.
+    On the other hand, a framework is a more comprehensive solution that provides a structure and a set of rules for building an entire application. It is a pre-written set of code that provides a particular architecture, design pattern, and way of working that developers can follow. Frameworks can include libraries as a part of their offering, but they also provide additional functionality such as pre-built components, templates, and APIs. With a framework, you are required to follow its structure and rules to build your application.
+    In summary, while libraries provide specific functionality that can be used to perform specific tasks, frameworks are more comprehensive solutions that provide a structure and set of rules for building an entire application.
+
+ 
+
+WHAT IS CDN WHY DO WE USE IT?
+
+    Ans. A CDN (Content Delivery Network) is a network of distributed servers that are strategically placed in different geographic locations around the world. The primary purpose of a CDN is to deliver content to end-users with high availability and high performance.
+    When you use a CDN, the content (such as es, videos, stylesheets, scripts, etc.) on your website is cached on multiple servers around the world. When a user requests your website, the CDN will serve the content from the server that is closest to the user's location. This reduces the latency and the time it takes to load your website, resulting in faster load times and a better user experience.
+    CDNs are commonly used for websites with largounts of static content that are accessed by users from different geographic locations. They are also used for delivering rich media content, such as videos and images, which can be bandwidth-intensive and take longer to load.
+    There are several benefits to using a CDN, includ
+    Improved website performance: By delivering content from a server that is closest to the user's location, a CDN can significantly reduce the latency ane time it takes to load your website.
+    Increased availability: With multiple servers hosting your content, a CDN can ensure that your website is always available, even in the event of a server oe or a surge in traffic.
+    Reduced bandwidth costs: By offloading some of the bandwidth to the CDN's servers, you can reduce the bandwidth usage and the associated costs on your own serv
+    Improved security: Some CDNs offer additional security features, such as SSL/TLS encryption and DDoS protection, which can help to protect your website from attacks and ensure the privacy of your users
+
+ 
+
+WHY REACT IS KNOWN AS REACT?
+
+    Ans. React is known as React because it is a JavaScript library for building user interfaces that "react" to changes in data. React was developed by Facebook and was first released in 2013.
+    In traditional web development, when data changes, the developer must manually update the corresponding parts of the user interface. With React, however, changes in data are automatically reflected in the user interface, without the need for manual updates.
+    React achieves this through its unique approach to rendering user interfaces, which is based on a virtual DOM (Document Object Model). When data changes, React updates the virtual DOM, and then efficiently updates only the parts of the actual DOM that have changed. This makes React fast and efficient, even when working with large and complex user interfaces.
+    The name "React" also reflects the library's philosophy of breaking the user interface down into small, reusable components that can be easily composed together. This allows developers to build complex user interfaces out of simple building blocks, making it easier to develop and maintain large applications.
+
+ 
+
+WHAT IS CROSS-ORIGIN IN THE SCRIPT TAG?
+
+    Ans. Cross-origin (or cross-domain) refers to a security feature implemented in web browsers that prevents web pages from making requests to a different domain than the one the web page was served from. This feature is known as the "same-origin policy".
+    The same-origin policy is designed to prevent malicious web pages from accessing sensitive data or functionality from other websites without the user's knowledge or consent. For example, if a user is logged into their bank's website and then visits a malicious website, that website should not be able to access the user's banking information by making requests to the bank's website.
+    The same-origin policy applies to the use of the script tag in HTML. When you include a JavaScript file in your web page using the script tag, the browser will only execute that script if it is from the same origin as the web page. If the script is from a different origin, the browser will block it from executing.
+    To allow scripts from other origins to be executed, you can use Cross-Origin Resource Sharing (CORS) headers on the server that serves the script file. These headers tell the browser that it is safe to execute the script from a different origin.
+    Alternatively, you can use JSONP (JSON with Padding) to load data from a different domain using the script tag. JSONP works by including a callback function name in the URL, which is executed by the browser when the script is loaded. However, JSONP has some security concerns and is not widely used anymore.
+
+ 
+
+WHAT IS THE DIFFEENCE BETWEEN REAT AND REACTDOM?
+
+    Ans. React and ReactDOM are two different packages in the React library.
+    React is the core package of the React library and provides the functionality for creating and managing components, updating the state and props of components, and rendering components to the virtual     
+    ReactDOM, on the other hand, is a package that provides the functionality for rendering React components to the actual DOM in the browser. It is responsible for managing the lifecycle of the React com    ponentandling events, and updating the actual DOM with changes made to the virtual DOM by React.
+    In summary, React is the core package that provides the functionality for creating and managing components, while ReactDOM provides the functionality for rendering those components to the actual DOM i    n the brow
+    When building a web application with React, both packages are essential and typically used together. You will use React to define and manage the structure and behavior of your components, and ReactDOM     to render those components to the browsWHAT IS DIFFERENCE BETWEEN REACT.DEVELOPMENT.JS AND REACT.PRODUCTION.JS FILES VIA?
+
+    Ans. React is a JavaScript library that is commonly used in web development. When using React in a web application, you can choose to use either the development version or the production version of the React library.
+    The main difference between the development and production versions of React is the size of the code and the level of optimization that is performed on the code.
+    The development version of React (react.development.js) is a larger file size that includes additional warnings and error messages. This version is intended to be used during development and debugging, as it provides more helpful error messages and debugging information to developers.
+    The production version of React (react.production.js) is a smaller file size that has been optimized for performance and does not include any additional warnings or error messages. This version is intended to be used in production environments where performance is critical.
+    When using a CDN to serve the React library, you can choose to serve either the development or production version depending on your needs. If you are developing and debugging your application, you may want to use the development version to get more helpful error messages. However, in production environments, it is recommended to use the production version to ensure optimal performance.
+    It is worth noting that using the production version of React during development may make debugging more difficult, as error messages will be less descriptive. Similarly, using the development version in production may result in larger file sizes and slower performance.
+
+ 
+
+WHAT IS SYNC AND DIFFER?
+
+ 
+
+ 
+
+wHAT IS NPM?
+    Ans. NPM (Node Package Manager) is a package manager for the JavaScript programming language. It is used primarily for managing Node.js modules, but can also be used for managing client-side JavaScript packages.
+    With NPM, developers can easily install, update, and remove packages or modules that they need for their projects. NPM packages are typically distributed as open-source modules that can be installed using the NPM command line interface (CLI).
+    NPM maintains a repository of over a million packages, including popular packages such as React, Express, and lodash. Developers can search for packages on the NPM website or using the NPM CLI and install them in their project by running a simple command.
+    NPM also provides a way for developers to manage dependencies between packages. When you install a package using NPM, it will automatically install any dependencies that the package requires. This makes it easy to manage complex projects with many dependencies.
+    In addition to managing packages, NPM can also be used to run scripts, such as build scripts, test scripts, or deployment scripts. This makes it easy to automate common tasks in your development workflow.
+    Overall, NPM is a powerful and essential tool for modern web development, allowing developers to easily manage dependencies and packages for their projects.
+
+ 
+
+WHAT IS 'PARCEL/WEBPACK' ? WHY DO WE NEED IT?
+
+    Ans. Parcel and Webpack are both module bundlers for JavaScript applications. They are used to bundle JavaScript files and other assets, such as CSS files, images, and fonts, into a single, optimized package that can be loaded by a web browser.
+    Here are some key differences between the two:
+    Parcel is a "zero-config" bundler, which means that it requires very little setup or configuration. It uses sensible defaults to automatically handle things like file types and module resolution. Webpack, on the other hand, requires more configuration but offers more flexibility and customization options.
+    Webpack has been around longer and is more widely used, so there is a larger community and more resources available for it. However, Parcel is gaining popularity due to its ease of use and simplicity.
+    Parcel is faster than Webpack in some cases, due to its use of a multicore compiler and other optimizations. However, Webpack has more advanced optimization features, which can make it faster in certain scenarios.
+    In general, both Parcel and Webpack are used to bundle JavaScript applications to improve performance and optimize loading times. They can also be used to transpile modern JavaScript features and syntax, such as ES6, into browser-compatible code.
+    In addition, these bundlers can handle other assets, such as CSS files and images, and optimize them for production use. This can include tasks like minification, compression, and tree shaking, which help to reduce the size of the bundle and improve performance.
+    Overall, Parcel and Webpack are essential tools for modern web development, allowing developers to optimize and bundle their applications for better performance and user experience.
+
+ 
+
+WHAT IS '.PARCEL-CACHE'?
+    Ans. .parcel-cache: This is a cache folder that is created by Parcel bundler to store previously built assets and avoid rebuilding them again in subsequent builds. It helps to speed up the build process and improve performance.
+
+ 
+
+WHAT IS NPX?
+
+    Ans. npx: This is a command-line tool that comes with npm (Node Package Manager) and allows you to run executables from local or remote npm packages without installing them globally. It helps to simplify development workflows and reduce package pollution on your system.
+
+ 
+
+WHAT IS DIFFERENCE BETWEEN DEPENDENCIES AND DEV DEPENDENCIES
+
+    Ans. Dependencies are the packages that are required for your application to run properly in production. On the other hand, dev dependencies are packages that are only required during development, such as testing frameworks, linters, and build tools.
+
+ 
+
+WHAT IS TREE SHAKING?
+
+    Ans. Tree shaking is a technique used by modern JavaScript bundlers to eliminate dead code (unused code) from the final production bundle. It helps to reduce the bundle size and improve the application's performance.
+
+ 
+
+WHTA IS HOT MODULE REPLACEMENT?
+
+    Ans. Hot Module Replacement (HMR) is a feature that allows developers to update the application code in real-time without requiring a full browser refresh. This speeds up the development process by enabling quick iterations and reducing development time.
+
+ 
+
+LIST DOWN YOUR 5 FAV 5 SUPERPOWERS OF PAREL AND DESCRIBE ANY 3 OF THEM ?
+
+    Ans. Some of the superpowers of Parcel include lightning-fast builds, support for various file formats and languages, zero configuration setup, and automatic asset optimization.
+
+ 
+
+WHAT IS GITIGNORE? WHAT SHOULD WE NEED AND NOT ADD INTO IT?
+    Ans. Gitignore is a file that tells Git which files or directories to ignore when committing changes. It is used to exclude files or directories that are not required in the repository, such as build artifacts, dependencies, and temporary files.
+
+ 
+
+WHAT IS THE DIFFERENCE BETWEEN PACKAGE.JSON AND PACKAGE-LOCK.JSON?
+
+    Ans. package.json contains information about the project, such as dependencies, scripts, and metadata. package-lock.json, on the other hand, is a file that ensures consistent installation of packages by locking down the versions of installed dependencies.
+
+ 
+
+WHY SHOULD I NOT MODIFY 'PACKAGE-LOCK.JSON'
+
+    Ans. Package.json is a file that contains metadata about your project and a list of dependencies and dev dependencies required for your application. Package-lock.json is a file that keeps track of the exact versions of each dependency installed and their dependencies, ensuring that the same versions are installed across different environments. You should not modify package-lock.json manually, as it is automatically generated by npm.
+
+ 
+
+WHAT IS 'NODE_MODULES'? IT IS A GOOD IDEA TO PUSH THAT ON GIT?
+
+    Ans. Node_modules is a folder that contains all the installed dependencies for your project. It is not a good idea to push the node_modules folder to Git, as it can be large and slow down the repository. Instead, you should use a package manager like npm to install the dependencies on each machine.
+
+ 
+
+WHAT IS THE DIST FOLDER?
+
+    Ans. The dist folder is a folder that contains the final output of your build process, typically containing optimized and minified files ready for production use.
+
+ 
+
+WHAT IS 'BROWSERLISTS'READ ABOUT DIFF BUNDLERS: VITE, WEBPACK, PARCEL.
+
+    Ans. Browserslist is a configuration file that specifies the list of browsers and their versions that your project should support. It is used by tools like Babel and Autoprefixer to determine which browser-specific features to transpile or polyfill.
+
+
+Vite, Webpack, and Parcel are all module bundlers used in modern web development. Vite is a newer bundler that is designed for fast development and hot module replacement, while Webpack is a more mature bundler with a large ecosystem and advanced optimization features. Parcel is a zero-configuration bundler that is fast and easy to use but may have fewer customization options.
+
+ 
+
+READ ABOUT: ^-CARET AND ~ -TILDA
+
+    Ans.  The ^ (caret) and ~ (tilde) symbols are used in the package.json file to specify version ranges for dependencies. The caret (^) indicates that the package can be updated to a newer minor or patch version, while the tilde (~) indicates
+
+ 
+WHAT ARE SCRIPT TYPES IN HTML?
+
+    Ans. Script types are used in HTML to define the type of script being included in the page. The most common types of scripts used in HTML are:
+
+    text/javascript: This is the default script type for JavaScript files. It is used to define scripts written in the JavaScript programming language.
+    text/html: This is used to define inline scripts written in HTML. It is typically used to include small snippets of code or event handlers.
+    application/javascript: This is similar to text/javascript but is used for scripts that are served with the application MIME type.
+    module: This is a newer script type used for JavaScript modules. It allows for better organization of code and can help improve performance.
+    text/css: This is used to define CSS stylesheets that are included in the page.
+    It is important to use the correct script type in HTML to ensure that the browser can properly interpret and execute the script.
+
+ 
+
+ 
+
+Sent from Outlook for Android
+
+  * const heading = React.createElement('h1', {id:'heading'}, 'I am H1');   * just creating a h1
+
+  *Now ahieve this
+/*
+    <div id="parent">
+        <div id="child">
+            <div id="sibling2">
+                <h1>Hello i am H1</h1>
+            </div>
+            <div id="sibling1">
+                <h2>Helllo i am H2</h2>
+            </div>
+        </div>
+    </div>
+
+    syntax of creating a dom element in react and displaying in doc
+
+    const head = Reach.createElement('tag', {'attributes: value'}, "content");   * creates and object.
+    proof  => consol.log(head)
+
+    create root = ReactDom.createRoot(document.getElementById("root"));
+
+    root.render(head);
+
+*/
+
+  *
+
+  * const parent  = React.createElement('h1', {id:'parent'}, 'Sanjay is here');
+
+  *   * so root is hwere u want react to render item to!!!! it cna be whole doc or some picec of dom
+  * const root = ReactDOM.createRoot(document); 
+  * root.render(parent);   * render will replae everything inside the root and put new stuff
+
+
+
+npm start == npm run start ===> beind the scene it runs npx parcel index.html.
+
+#Babel
+    - transpile es6 code for older browser.
+    - champ of compile, 
+    - converts different code to different code.
+    -Parcel is a manager of Babel
+    ##read Babel
+
+
+
+
+    * const var_name = <tag id="" className="">Value to represent</tag>;
+    const jsxHeading = (
+    <h1 id="parent" tabIndex="5">
+        hello World
+    </h1>);
+    * jsx syntax => ReactElemnt => js-object => HTMLemlement(render)
+
+
+React Component
+  * Class Based Components -OLD
+  * React Functional Component - NEW
+      * - always name it with Capital letter.
+      *- its a normal js function which returns a jsx component/ react element.
+
+const HeadingComponent = () => {
+    return <h1 className="heading">React functional Component</h1>
+}
+
+/*
+const HeadingComponent = () => {
+    return <h1>React functional Component</h1>
+}
+
+is same as
+
+const HeadingComponent = () => return <h1>React functional Component</h1>
+
+*/
+
+  * const HeadingComponent2 = () => <h1 className="heading">React functional Component wiht no return </h1>
+  *how to render?
+
+
+
+What is Babel?
+    Babel is a JavaScript compiler that can translate markup or programming languages into JavaScript.
+
+    With Babel, you can use the newest features of JavaScript (ES6 - ECMAScript 2015).
+
+    Babel is available for different conversions. React uses Babel to convert JSX into JavaScript.
+
+    Please note that <script type="text/babel"> is needed for using Babel.
+
+Example
+    <div id="id01">Hello World!</div>
+
+    <script type="text/babel">
+    ReactDOM.render(
+        <h1>Hello React!</h1>,
+        document.getElementById('id01'));
+    </script>
+
+
+Try it Yourself »
+
+REACT ELEMENTS
+   * React applications are usually built around a single HTML element.
+
+    * React developers often call this the root node (root element):
+
+    * <div id="root"></div>
+
+    * React elements look like this:
+
+    * const element = <h1>Hello React!</h1>
+
+    * Elements are rendered (displayed) with the ReactDOM.render() method:
+
+    * ReactDOM.render(element, document.getElementById('root'));
+
+Try it Yourself »
+
+    React elements are immutable. They cannot be changed.
+
+    The only way to change a React element is to render a new element every time:
+
+Example
+    function tick() {
+        const element = (<h1>{new Date().toLocaleTimeString()}</h1>);
+        ReactDOM.render(element, document.getElementById('root'));
+    }
+    setInterval(tick, 1000);
+
+Try it Yourself »
+
+    React Components
+    React components are JavaScript functions.
+
+    This example creates a React component named "Welcome":
+
+Example
+    function Welcome() {
+        return <h1>Hello React!</h1>;
+    }
+    ReactDOM.render(<Welcome />, document.getElementById('root'));
+
+Try it Yourself »
+
+    React can also use ES6 classes to create components.
+
+    This example creates a React component named Welcome with a render method:
+
+Example
+    class Welcome extends React.Component {
+        render() { return(<h1>Hello React!</h1>); }
+    }
+    ReactDOM.render(<Welcome />, document.getElementById('root'));
+
+Try it Yourself »
+
+    React Component Properties
+    This example creates a React component named "Welcome" with property arguments:
+
+Example
+    function Welcome(props) {
+        return <h1>Hello {props.name}!</h1>;
+    }
+    ReactDOM.render(<Welcome name="John Doe"/>, document.getElementById('root'));
+
+Try it Yourself »
+
+    React can also use ES6 classes to create components.
+
+    This example also creates a React component named "Welcome" with property arguments:
+
+Example
+    class Welcome extends React.Component {
+        render() { return(<h1>Hello {this.props.name}</h1>); }
+    }
+    ReactDOM.render(<Welcome name="John Doe"/>, document.getElementById('root'));
+
+    Try it Yourself »
+
+
+What is JSX?
+    JSX stands for JavaScript XML.
+
+    JSX is an XML/HTML like extension to JavaScript.
+
+    Example
+    const element = <h1>Hello World!</h1>
+
+    As you can see above, JSX is not JavaScript nor HTML.
+
+    JSX is a XML syntax extension to JavaScript that also comes with the full power of ES6 (ECMAScript 2015).
+
+    Just like HTML, JSX tags can have a tag names, attributes, and children. If an attribute is wrapped in curly braces, the value is a JavaScript expression.
+
+    Note that JSX does not use quotes around the HTML text string.
+
+    React DOM Render
+    The method ReactDom.render() is used to render (display) HTML elements:
+
+# JSX
+    - jsx is separate.
+    - jsx makke developers part easy.
+    - is aconvention where we merge html nad js together.
+    - jsx in not an html inside js, its a html like or xml like syntax.
+    - its just a syntax.
+    - js engine cannot understasnd this language. js engien understand echmascript so jsx synntax is not valid js.
+    - so how js engine understands it?  Parcel is doing this behind th escene. its transpiled before it goes t js engine, and in parcel
+    - its Babel's job to convert it such that react will understand, its a javascript compiler.
+
+    const jsxHeading = <h1 id="parent">hello World</h1>;
+    * jsx syntax Babel converts it to => ReactElemnt => js-object => HTMLemlement(render)
+
+
+    jsx syntax to declare a variable:
+
+    -const var_name = <tag id="" className="">Value to represent</tag>;
+    * Note while giving attributes tojsx syntax we use camelCase thisis somehting we dont do in html, hence jsx is an html like syntax not html.
+
+    - ##home work: check all syntax for jsx.
+
+    - wheile writing syntax in multiple lines , wrap itinside ();
+
+JSX Expressions
+    Expressions can be used in JSX by wrapping them in curly {} braces.
+
+    Example
+    <div id="id01">Hello World!</div>
+
+    <script type="text/babel">
+    const name = 'John Doe';
+    ReactDOM.render(
+        <h1>Hello {name}!</h1>,
+        document.getElementById('id01'));
+    </script>
+
+JSX Compiler
+    The examples on this page compiles JSX in the browser.
+
+For production code, the compilation should be done separately.
+
+Create React Application
+Facebook has created a Create React Application with everything you need to build a React app.
+
+It is a a development server that uses Webpack to compile React, JSX, and ES6, auto-prefix CSS files.
+
+The Create React App uses ESLint to test and warn about mistakes in the code.
+
+To create a Create React App run the following code on your terminal:
+
+Example
+npx create-react-app react-tutorial
+
+Make sure you have Node.js 5.2 or higher. Otherwise you must install npx:
+
+Example
+npm i npx
+
+Start one folder up from where you want your application to stay:
+
+Example
+C:\Users\myUser>npx create-react-app react-tutorial
+
+Success Result:
+npx: installed 63 in 10.359s
+Creating a new React app in C:\Users\myUser\react-tutorial.
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts...
++ react-dom@16.5.2
++ react@16.5.2
++ react-scripts@2.0.4
+added 1732 packages from 664 contributors and audited 31900 packages in 355.501s
+found 0 vulnerabilities+ react@16.5.2
+
+Success! Created react-tutorial at C:\Users\myUser\react-tutorial
+Inside that directory, you can run several commands:
+
+npm start
+Starts the development server.
+
+npm run build
+Bundles the app into static files for production.
+
+npm test
+Starts the test runner.
+
+npm run eject
+Removes this tool and copies build dependencies, configuration files
+and scripts into the app directory. If you do this, you can't go back!
+
+We suggest that you begin by typing:
+
+cd react-tutorial
+npm start
+
+
+* #JSX beauty
+1 const var_name = <tag id="" className="">Value to represent</tag>;
+  * jsx syntax => ReactElemnt => js-object => HTMLemlement(render)
+
+  * React Component
+  * Class Based Components - OLD - uses js classes.
+  * React Functional Component - NEW - uses js fucntins.
+      * - always name it with Capital letter.
+      *- its a normal js function which returns a jsx component/ react element.
+Jsx expression can only have one parentelement, it can only have one root.
+
+
+const HeadingComponent = () => {
+    return <h1>React functional Component</h1>
+}
+
+is same as
+
+const HeadingComponent = () => return <h1>React functional Component</h1>
+
+* const HeadingComponent2 = () => <h1 className="heading">React functional Component wiht no return </h1>
+*how to render?
+
+
+
+plaanning out application:
+
+/*
+Componenets required":
+
+1 Header
+    - Logo
+    - Nav braces
+2 Body
+    - Search
+    - Restraunt container
+        - Restraunt cards
+3 Footer
+    - Copyright
+    - Links
+    - Adress
+    - Contacts
+
+*/
+
+
+
+props ? A normal arguments TO A FUNCTION.
+Passing a prop to a component === passing a prop to a function

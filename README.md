@@ -19,3 +19,27 @@ Error Handling
 HTTPs
 Tree Shaking- removes unused code
 Different buld for dev and prod build
+
+# Food-Point 
+
+/*
+Componenets required":
+
+1 Header
+    - Logo
+    - Nav braces
+2 Body
+    - Search
+    - Restraunt container 
+        - Restraunt cards // when there is cnace of code repating build separate component\
+            - image
+            - name of rest
+            - star rating
+            - cusinies
+            - estimate time 
+3 Footer
+    - Copyright
+    - Links
+    - Adress
+    - Contacts
+*/

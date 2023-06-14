@@ -137,7 +137,7 @@ WHAT IS CROSS-ORIGIN IN THE SCRIPT TAG?
 
  
 
-WHAT IS THE DIFFEENCE BETWEEN REAT AND REACTDOM?
+WHAT IS THE DIFFEENCE BETWEEN REACT AND REACTDOM?
 
     Ans. React and ReactDOM are two different packages in the React library.
     React is the core package of the React library and provides the functionality for creating and managing components, updating the state and props of components, and rendering components to the virtual     
@@ -624,3 +624,85 @@ Componenets required":
 
 props ? A normal arguments TO A FUNCTION.
 Passing a prop to a component === passing a prop to a function
+
+
+Config Driven UI :
+delhi has different curousel, bnagalurur has different,
+this data comes form backend
+when UI changes according to our data in 
+UI is powered by DATA
+
+
+/*
+
+inline style in react 
+
+
+way 1: 
+const css = {
+    backgroundColor : '#f0f0f0',
+    width: '200px',
+    height:' 300px',
+    border: '1px solid black',
+}; && pass css to style={}
+
+way 2 : give js object to style={({css})}
+*/
+
+
+ // can also use destructuring 
+    const {resData} = props; // what props here ctually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
+
+
+// not using key is not acceptable, index as key(last resort) <<<<<< unique key(best practice)
+
+
+Q    anything we do using react we can do that using html and js so why we need react?
+
+While it is possible to achieve similar functionality using vanilla HTML, CSS, and JavaScript,
+React simplifies the development process and offers additional benefits such as 
+( Component-based architecture,Virtual DOM, Declarative syntax, React ecosystem, Performance optimizations, Strong community support ) 
+that can save time and effort in building robust and maintainable web applications.
+
+
+
+Q   is there ny defined folder stuructre?
+Ans react doesnot care how you keep your files and folder
+but there are common approaches used in the industry
+
+    1. Grouping by routes
+    2. Grouping by file types
+    3. avoid too much nested.
+
+Q   what is the difference between abc.js, abc.jsx, abc.tsx?
+
+The file extensions you mentioned - .js, .jsx, and .tsx - are commonly used in React development. Here's a breakdown of what each extension represents:
+
+.js (JavaScript):
+
+This is the standard extension for JavaScript files. It indicates that the file contains JavaScript code.
+In React, you can use .js files to write your components and application logic. You can create React components using JavaScript syntax and JSX syntax within these files.
+.jsx (JavaScript XML):
+
+JSX is an extension to JavaScript that allows you to write HTML-like code within your JavaScript files.
+When you use the .jsx extension, it typically indicates that the file contains React components written using JSX syntax. JSX is a convenient and expressive way to define the structure and appearance of your components.
+.tsx (TypeScript XML):
+
+TypeScript is a superset of JavaScript that adds static typing and other features to JavaScript.
+When you use the .tsx extension, it indicates that the file contains React components written using TypeScript syntax. TypeScript allows you to add static type checking and other TypeScript-specific features to your React code, which can help catch errors during development and improve code maintainability.
+In summary, all three extensions - .js, .jsx, and .tsx - can be used to write React components and application logic. The choice of extension depends on whether you're using plain JavaScript (.js), JavaScript with JSX syntax (.jsx), or TypeScript with JSX syntax (.tsx). TypeScript adds static typing and other TypeScript-specific features to enhance the development experience and code quality.
+
+
+
+import exprt a component
+
+make separate files fo component, and then import them to your app.js
+
+way 1 -->  export component(definition) then import component from location
+way 2 --> component(definition) , export default component name ---> then import component from location
+
+
+module cannot have multiple default export.
+there are two types of export :
+    1. Named expert --> const 
+    2. default export --->  export cpnt fun ()

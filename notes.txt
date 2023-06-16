@@ -704,5 +704,57 @@ way 2 --> component(definition) , export default component name ---> then import
 
 module cannot have multiple default export.
 there are two types of export :
-    1. Named expert --> const 
-    2. default export --->  export cpnt fun ()
+    1. Named expert --> const
+    2. default export --->  export cont fun ()
+
+
+# React Hooks
+
+-useSate()  - super powerful react variables.
+            - when ever the state varibale update react re-renders the component.
+
+# React Algorithm
+
+it uses re-concillliation algorithm aka React-Fibre
+suppose res-container has 5 resCards ----onClicked--> it rerenders it to res-contianer with 3 resCards.
+
+what react does is,it crates a virtual DOM (a representAION of acutal Of DOM)
+
+Diff ALgorithm:
+
+finds out the difference between old virtual dom and new virtual dom.
+
+
+
+#######################3 notes Let's get Hooked!
+Theory
+• What is the difference between Named Export, Default export and * as export? • What is the importance of config.js file
+Named Exports :
+    - allows multiple exports.
+    - imported by specific names.
+    - must be explicitly specified by export keyword.
+
+Default Exports :
+    - allows only one default export per module
+    - can be imported by any reference nama, needs not to be same as defined but its good practic to give same name.
+
+wildCard Export;
+    - syntax import *as ref_name from './path'.
+    - allows imports all exported references as object 
+    - accessed using ref_name.value
+
+congfig.js file:
+    -  not a standard part of JavaScript or web development but can be used for to store 
+
+What are React Hooks?
+• Why do we need a useState Hook?
+Coding
+• Clean up your code
+• Create a Folder Structure for your app • Make different files for each Components Create a config file
+• Use all types of import and export Create a Search Box in your App
+• Use useState to create a variable and bind it to the input box
+• Try to make your search bar work
+References
+• Code Link - https://bitbucket.org/namastedev/namaste-react-live/src/master/
+
+

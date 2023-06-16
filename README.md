@@ -43,3 +43,12 @@ Componenets required":
     - Adress
     - Contacts
 */
+
+
+
+# React Hooks
+
+Normal Js utility function.
+-useSate()  - super powerful react variables.
+            - when ever the state varibale update react rerenders the component.
+-useEffect()

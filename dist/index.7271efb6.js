@@ -27413,6 +27413,16 @@ const Body = ()=>{
     _s();
     //state variable
     let [restrauntList, setRestrauntList] = (0, _react.useState)((0, _mockDataDefault.default));
+    (0, _react.useEffect)(()=>{
+        console.log("useffect at work");
+        fetchData();
+    }, []);
+    fetchData = async ()=>{
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        console.log(data);
+    };
+    console.log("i am rendered before useEffect");
     // Normal js varible
     // let restrauntList = resList;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27430,12 +27440,12 @@ const Body = ()=>{
                     children: "Top Rated Restraunts"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 15,
+                    lineNumber: 28,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 14,
+                lineNumber: 27,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27445,23 +27455,23 @@ const Body = ()=>{
                         resData: restro
                     }, restro.data.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 24,
+                        lineNumber: 37,
                         columnNumber: 28
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 21,
+                lineNumber: 34,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 13,
+        lineNumber: 26,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "a6eZzQ7CpgBTwaVBbciO3PHeNOc=");
+_s(Body, "o/0hu094vdQU0iBStVb3dkJdHXA=");
 _c = Body;
 var _c;
 $RefreshReg$(_c, "Body");

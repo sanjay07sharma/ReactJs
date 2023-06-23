@@ -744,9 +744,12 @@ wildCard Export;
     - accessed using ref_name.value
 
 congfig.js file:
-    -  not a standard part of JavaScript or web development but can be used for to store 
+    -  not a standard part of JavaScript or web development but can be used for to store configuration varibaoles or constants
 
 What are React Hooks?
+
+
+
 • Why do we need a useState Hook?
 Coding
 • Clean up your code

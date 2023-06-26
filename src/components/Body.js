@@ -1,11 +1,11 @@
 import { RestrauntCard } from "./RestrauntCard";
-import resList from "../utils/mockData";
+// import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 
 export const Body = () => {
 
     //state variable
-    let [restrauntList, setRestrauntList] = useState(resList);
+    let [restrauntList, setRestrauntList] = useState([]); // resList or data from an API
 
     useEffect(() => {
         console.log('useffect at work');
@@ -15,7 +15,8 @@ export const Body = () => {
     fetchData = async () => {
         const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING');
         const json = await data.json();
-        console.log(data);
+        // setRestrauntList(json.data.cards[2].data.data.cards)// Bad way
+        setRestrauntList(json?.data?.cards[2]?.data?.data?.cards);// Good way is optional chaining
     }
 
     console.log('i am rendered before useEffect');
@@ -27,8 +28,7 @@ export const Body = () => {
             <div className="filter">
                 <button className="filter-btn" onClick={() =>{
                     filteredRestrauntList = restrauntList.filter( (list) => list.data.avgRating > 4 )
-                    setRestrauntList(filteredRestrauntList)
-                    console.log(restrauntList)
+                    setRestrauntList(filteredRestrauntList);
                 }}>Top Rated Restraunts</button>
             </div>
             <div className="res-container">

@@ -2,8 +2,8 @@ import { CDN_URL } from "../utils/constants";
 
 export const RestrauntCard = (props) => {
     // can also use destructuring 
-    const {resData} = props; // what props here ctually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
-    const {id, name, cuisines, avgRating, costForTwo, deliveryTime, cloudinaryImageId} = resData.data
+    const {resData} = props; // what props here actually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
+    const {id, name, cuisines, avgRating, costForTwo, deliveryTime, cloudinaryImageId} = resData.data;
     return(
         <div className="res-card">
             <img

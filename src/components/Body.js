@@ -1,6 +1,7 @@
 import { RestrauntCard } from "./RestrauntCard";
 // import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
+import shimmer from "./Shimmer";
 
 export const Body = () => {
 
@@ -17,6 +18,10 @@ export const Body = () => {
         const json = await data.json();
         // setRestrauntList(json.data.cards[2].data.data.cards)// Bad way
         setRestrauntList(json?.data?.cards[2]?.data?.data?.cards);// Good way is optional chaining
+    }
+
+    if (restrauntList.length === 0) {
+        return <shimmer/>;
     }
 
     console.log('i am rendered before useEffect');

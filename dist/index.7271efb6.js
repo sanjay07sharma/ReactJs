@@ -27144,7 +27144,11 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Header", ()=>Header);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _constants = require("../utils/constants");
+var _react = require("react");
+var _s = $RefreshSig$();
 const Header = ()=>{
+    _s();
+    const [btnName, setBtnName] = (0, _react.useState)("Login");
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "header",
         children: [
@@ -27155,12 +27159,12 @@ const Header = ()=>{
                     src: (0, _constants.LOGO_URL)
                 }, void 0, false, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 7,
+                    lineNumber: 9,
                     columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Header.js",
-                lineNumber: 6,
+                lineNumber: 8,
                 columnNumber: 9
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27171,48 +27175,62 @@ const Header = ()=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 11,
+                            lineNumber: 13,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "About Us"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 12,
+                            lineNumber: 14,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: " Contact Us"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 13,
+                            lineNumber: 15,
                             columnNumber: 17
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                             children: "Cart"
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 14,
+                            lineNumber: 16,
+                            columnNumber: 17
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "login-btn",
+                            onClick: ()=>{
+                                // btnName="Logout"; // cant directly change state variable
+                                setBtnName("Logout");
+                                console.log("Login button clicked");
+                            },
+                            children: btnName
+                        }, void 0, false, {
+                            fileName: "src/components/Header.js",
+                            lineNumber: 17,
                             columnNumber: 17
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 10,
+                    lineNumber: 12,
                     columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Header.js",
-                lineNumber: 9,
+                lineNumber: 11,
                 columnNumber: 9
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Header.js",
-        lineNumber: 5,
+        lineNumber: 7,
         columnNumber: 9
     }, undefined);
 };
+_s(Header, "XxbY1IFoMGeOwYtHi7sHrBFs8Hk=");
 _c = Header;
 var _c;
 $RefreshReg$(_c, "Header");
@@ -27222,7 +27240,7 @@ $RefreshReg$(_c, "Header");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hB8jg":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../utils/constants":"hB8jg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"hB8jg":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CDN_URL", ()=>CDN_URL);
@@ -27415,24 +27433,24 @@ const Body = ()=>{
     //state variable
     let [restrauntList, setRestrauntList] = (0, _react.useState)([]); // resList or data from an API
     (0, _react.useEffect)(()=>{
-        console.log("useffect at work");
         fetchData();
+        document.getElementsByClassName("login-btn");
     }, []);
     fetchData = async ()=>{
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0311463&lng=72.587026&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         // setRestrauntList(json.data.cards[2].data.data.cards)// Bad way
-        setRestrauntList(json?.data?.cards[2]?.data?.data?.cards); // Good way is optional chaining
+        setRestrauntList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants); // Good way is optional chaining
     };
-    if (restrauntList.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("shimmer", {}, void 0, false, {
-        fileName: "src/components/Body.js",
-        lineNumber: 24,
-        columnNumber: 16
-    }, undefined);
     console.log("i am rendered before useEffect");
     // Normal js varible
     // let restrauntList = resList;
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    // conditional rendering
+    return restrauntList?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
+        fileName: "src/components/Body.js",
+        lineNumber: 28,
+        columnNumber: 44
+    }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27440,18 +27458,18 @@ const Body = ()=>{
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     className: "filter-btn",
                     onClick: ()=>{
-                        filteredRestrauntList = restrauntList.filter((list)=>list.data.avgRating > 4);
+                        filteredRestrauntList = restrauntList.filter((list)=>list.info.avgRating > 4);
                         setRestrauntList(filteredRestrauntList);
                     },
                     children: "Top Rated Restraunts"
                 }, void 0, false, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 34,
+                    lineNumber: 31,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 33,
+                lineNumber: 30,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27459,21 +27477,21 @@ const Body = ()=>{
                 children: restrauntList.map((restro)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restrauntCard.RestrauntCard), {
                         resData: restro
-                    }, restro.data.id, false, {
+                    }, restro.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 42,
+                        lineNumber: 39,
                         columnNumber: 28
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 39,
+                lineNumber: 36,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 32,
+        lineNumber: 29,
         columnNumber: 9
     }, undefined);
 };
@@ -27500,9 +27518,11 @@ parcelHelpers.export(exports, "RestrauntCard", ()=>RestrauntCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _constants = require("../utils/constants");
 const RestrauntCard = (props)=>{
-    // can also use destructuring 
+    // can also use destructuring
     const { resData  } = props; // what props here actually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
-    const { id , name , cuisines , avgRating , costForTwo , deliveryTime , cloudinaryImageId  } = resData.data;
+    debugger;
+    const { id , name , cuisines , avgRating , costForTwo , cloudinaryImageId  } = resData.info;
+    debugger;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "res-card",
         children: [
@@ -27511,50 +27531,43 @@ const RestrauntCard = (props)=>{
                 src: (0, _constants.CDN_URL) + cloudinaryImageId
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 9,
-                columnNumber: 13
+                lineNumber: 18,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: name
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 13,
-                columnNumber: 13
+                lineNumber: 19,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 class: "cuisines",
-                children: cuisines.join(",")
+                children: cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 14,
-                columnNumber: 13
+                lineNumber: 20,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: avgRating
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 15,
-                columnNumber: 13
+                lineNumber: 21,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                children: "Rs: " + costForTwo / 100 + " for Two"
+                children: costForTwo
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 16,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                children: deliveryTime + " minutes"
-            }, void 0, false, {
-                fileName: "src/components/RestrauntCard.js",
-                lineNumber: 17,
-                columnNumber: 13
+                lineNumber: 22,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntCard.js",
-        lineNumber: 8,
-        columnNumber: 9
+        lineNumber: 17,
+        columnNumber: 5
     }, undefined);
 };
 _c = RestrauntCard;
@@ -27576,7 +27589,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const shimmer = ()=>{
+const Shimmer = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "shimmer-wrappper",
         children: [
@@ -27611,6 +27624,70 @@ const shimmer = ()=>{
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 7,
                 columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 8,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 9,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 10,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 11,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 12,
+                columnNumber: 17
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 13,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 14,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "shimmer-card",
+                children: "Cards"
+            }, void 0, false, {
+                fileName: "src/components/Shimmer.js",
+                lineNumber: 15,
+                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
@@ -27619,7 +27696,10 @@ const shimmer = ()=>{
         columnNumber: 9
     }, undefined);
 };
-exports.default = shimmer;
+_c = Shimmer;
+exports.default = Shimmer;
+var _c;
+$RefreshReg$(_c, "Shimmer");
 
   $parcel$ReactRefreshHelpers$0b04.postlude(module);
 } finally {

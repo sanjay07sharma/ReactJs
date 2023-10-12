@@ -58,8 +58,13 @@
 .res-container {
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     margin: 25px;
+    padding-left: 10px;
+}
+
+.cuisines {
+    word-wrap: break-word;
 }
 
 .filter-btn {
@@ -67,14 +72,22 @@
     margin: 10px;
 }
 
-.shimmer-wrapper {
+.shimmer-wrappper {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.shimmer-cards {
+.shimmer-card {
+    color: blueviolet;
+    border: 20px;
     width: 200px;
-    height: 200px;
+    height: 300px;
     margin: 10px;
     background-color: #f0f0f0;
-    animation: shimmer 2s infinite linear forwards;
+    /* animation: shimmer 2s infinite linear forwards; */
+}
+
+.login-btn {
+    cursor: pointer;
+    padding: 0px 20px;
 }

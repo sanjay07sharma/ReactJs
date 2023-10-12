@@ -761,3 +761,15 @@ References
 • Code Link - https://bitbucket.org/namastedev/namaste-react-live/src/master/
 
 
+
+
+Whenever state variable changes React rerender whole component where it is defined.
+
+Best part and good question
+
+const [btnName, setBtnName] = useState("Login");
+
+How setBtnName is able to update the value of const btnName isnt it defying the laws of javascript.
+Ans: it is able to do it because every time whn setBtnName() call is made btnName is new variable than it was before.
+hence const remains the same as is.
+

@@ -3,7 +3,6 @@ import { CDN_URL } from "../utils/constants";
 export const RestrauntCard = (props) => {
   // can also use destructuring
   const { resData } = props; // what props here actually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
-  debugger;
   const {
     id,
     name,
@@ -12,7 +11,6 @@ export const RestrauntCard = (props) => {
     costForTwo,
     cloudinaryImageId,
   } = resData.info;
-  debugger
   return (
     <div className="res-card">
       <img className="res-logo" src={CDN_URL + cloudinaryImageId} />

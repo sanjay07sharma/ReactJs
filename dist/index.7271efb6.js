@@ -27203,7 +27203,7 @@ const Header = ()=>{
                             className: "login-btn",
                             onClick: ()=>{
                                 // btnName="Logout"; // cant directly change state variable
-                                setBtnName("Logout");
+                                btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
                                 console.log("Login button clicked");
                             },
                             children: btnName
@@ -27432,9 +27432,11 @@ const Body = ()=>{
     _s();
     //state variable
     let [restrauntList, setRestrauntList] = (0, _react.useState)([]); // resList or data from an API
+    let [searchText, setSearchText] = (0, _react.useState)("");
+    // whenver there is change in state variable, react triggers reconcilliation cycle, the component will re-render.
+    console.log("Body Rendred");
     (0, _react.useEffect)(()=>{
         fetchData();
-        document.getElementsByClassName("login-btn");
     }, []);
     fetchData = async ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0311463&lng=72.587026&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
@@ -27444,58 +27446,92 @@ const Body = ()=>{
     };
     console.log("i am rendered before useEffect");
     // Normal js varible
-    // let restrauntList = resList;
     // conditional rendering
     return restrauntList?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 28,
+        lineNumber: 31,
         columnNumber: 44
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "filter",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "filter-btn",
-                    onClick: ()=>{
-                        filteredRestrauntList = restrauntList.filter((list)=>list.info.avgRating > 4);
-                        setRestrauntList(filteredRestrauntList);
-                    },
-                    children: "Top Rated Restraunts"
-                }, void 0, false, {
-                    fileName: "src/components/Body.js",
-                    lineNumber: 31,
-                    columnNumber: 17
-                }, undefined)
-            }, void 0, false, {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "Search",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                type: "text",
+                                placeholder: "Search for restraunts",
+                                value: searchText,
+                                onChange: (e)=>setSearchText(e.target.value)
+                            }, void 0, false, {
+                                fileName: "src/components/Body.js",
+                                lineNumber: 35,
+                                columnNumber: 21
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                className: "search-btn",
+                                onClick: ()=>{
+                                    const filteredRestrauntList1 = restrauntList.filter((res)=>{
+                                        res.info.name.toLowerCase().includes(searchText.toLowerCase());
+                                    });
+                                    setRestrauntList(filteredRestrauntList1);
+                                },
+                                children: "Search"
+                            }, void 0, false, {
+                                fileName: "src/components/Body.js",
+                                lineNumber: 36,
+                                columnNumber: 21
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/Body.js",
+                        lineNumber: 34,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "filter-btn",
+                        onClick: ()=>{
+                            constfilteredRestrauntList = restrauntList.filter((list)=>list.info.avgRating > 4);
+                            setRestrauntList(filteredRestrauntList);
+                        },
+                        children: "Top Rated Restraunts"
+                    }, void 0, false, {
+                        fileName: "src/components/Body.js",
+                        lineNumber: 44,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 30,
+                lineNumber: 33,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "res-container",
-                children: restrauntList.map((restro)=>{
+                children: restrauntList?.map((restro)=>{
                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restrauntCard.RestrauntCard), {
                         resData: restro
                     }, restro.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 39,
+                        lineNumber: 52,
                         columnNumber: 28
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 36,
+                lineNumber: 49,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 29,
+        lineNumber: 32,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "2+rSN9NdutO005iVkS1QZdseO2o=");
+_s(Body, "rBK7QccbVL8sw/HKS2bZQqad2SY=");
 _c = Body;
 var _c;
 $RefreshReg$(_c, "Body");
@@ -27520,9 +27556,7 @@ var _constants = require("../utils/constants");
 const RestrauntCard = (props)=>{
     // can also use destructuring
     const { resData  } = props; // what props here actually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
-    debugger;
     const { id , name , cuisines , avgRating , costForTwo , cloudinaryImageId  } = resData.info;
-    debugger;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "res-card",
         children: [
@@ -27531,14 +27565,14 @@ const RestrauntCard = (props)=>{
                 src: (0, _constants.CDN_URL) + cloudinaryImageId
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 18,
+                lineNumber: 16,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: name
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 19,
+                lineNumber: 17,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
@@ -27546,27 +27580,27 @@ const RestrauntCard = (props)=>{
                 children: cuisines.join(", ")
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 20,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: avgRating
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 21,
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: costForTwo
             }, void 0, false, {
                 fileName: "src/components/RestrauntCard.js",
-                lineNumber: 22,
+                lineNumber: 20,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntCard.js",
-        lineNumber: 17,
+        lineNumber: 15,
         columnNumber: 5
     }, undefined);
 };

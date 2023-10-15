@@ -20,7 +20,6 @@ export const Header = () => {
                     // btnName="Logout"; // cant directly change state variable
                     btnName === 'Login' ?
                     setBtnName("Logout") : setBtnName("Login");
-                    console.log("Login button clicked");
                 }}
                 >
                     {btnName}

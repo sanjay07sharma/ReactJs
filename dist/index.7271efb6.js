@@ -27204,7 +27204,6 @@ const Header = ()=>{
                             onClick: ()=>{
                                 // btnName="Logout"; // cant directly change state variable
                                 btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-                                console.log("Login button clicked");
                             },
                             children: btnName
                         }, void 0, false, {
@@ -27434,7 +27433,6 @@ const Body = ()=>{
     let [restrauntList, setRestrauntList] = (0, _react.useState)([]); // resList or data from an API
     let [searchText, setSearchText] = (0, _react.useState)("");
     // whenver there is change in state variable, react triggers reconcilliation cycle, the component will re-render.
-    console.log("Body Rendred");
     (0, _react.useEffect)(()=>{
         fetchData();
     }, []);
@@ -27442,14 +27440,13 @@ const Body = ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0311463&lng=72.587026&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         // setRestrauntList(json.data.cards[2].data.data.cards)// Bad way
-        setRestrauntList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants); // Good way is optional chaining
+        setRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); // Good way is optional chaining
     };
-    console.log("i am rendered before useEffect");
     // Normal js varible
     // conditional rendering
     return restrauntList?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 31,
+        lineNumber: 26,
         columnNumber: 44
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
@@ -27458,7 +27455,7 @@ const Body = ()=>{
                 className: "filter",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "Search",
+                        className: "search",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 type: "text",
@@ -27467,45 +27464,43 @@ const Body = ()=>{
                                 onChange: (e)=>setSearchText(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 35,
+                                lineNumber: 30,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 className: "search-btn",
                                 onClick: ()=>{
-                                    const filteredRestrauntList1 = restrauntList.filter((res)=>{
-                                        res.info.name.toLowerCase().includes(searchText.toLowerCase());
-                                    });
-                                    setRestrauntList(filteredRestrauntList1);
+                                    const filteredRestrauntList = restrauntList.filter((res)=>res.info.name.toLowerCase().includes(searchText));
+                                    setRestrauntList(filteredRestrauntList);
                                 },
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 36,
+                                lineNumber: 31,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 34,
+                        lineNumber: 29,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "filter-btn",
                         onClick: ()=>{
-                            constfilteredRestrauntList = restrauntList.filter((list)=>list.info.avgRating > 4);
-                            setRestrauntList(filteredRestrauntList);
+                            const filteredRestrauntList = restrauntList.filter((list)=>list.info.avgRating > 4);
+                            setRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : restrauntList);
                         },
                         children: "Top Rated Restraunts"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 44,
+                        lineNumber: 36,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 33,
+                lineNumber: 28,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27515,19 +27510,19 @@ const Body = ()=>{
                         resData: restro
                     }, restro.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 52,
+                        lineNumber: 44,
                         columnNumber: 28
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 49,
+                lineNumber: 41,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 32,
+        lineNumber: 27,
         columnNumber: 9
     }, undefined);
 };
@@ -27628,96 +27623,84 @@ const Shimmer = ()=>{
         className: "shimmer-wrappper",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 4,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 5,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 6,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 7,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 8,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 9,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 10,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 11,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 12,
-                columnNumber: 17
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 13,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 14,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "shimmer-card",
-                children: "Cards"
+                className: "shimmer-card"
             }, void 0, false, {
                 fileName: "src/components/Shimmer.js",
                 lineNumber: 15,

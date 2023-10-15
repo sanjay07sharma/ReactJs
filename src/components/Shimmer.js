@@ -1,18 +1,18 @@
 const Shimmer = () => {
     return (
         <div className="shimmer-wrappper">
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-                <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
-            <div className="shimmer-card">Cards</div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
+            <div className="shimmer-card"></div>
         </div>
     );
 }

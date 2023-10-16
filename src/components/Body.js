@@ -8,6 +8,7 @@ export const Body = () => {
     //state variable
     const [restrauntList, setRestrauntList] = useState([]); // resList or data from an API
     const [searchText, setSearchText] = useState('');
+    const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
 
     // whenver there is change in state variable, react triggers reconcilliation cycle, the component will re-render.
     useEffect(() => {
@@ -19,6 +20,7 @@ export const Body = () => {
         const json = await data.json();
         // setRestrauntList(json.data.cards[2].data.data.cards)// Bad way
         setRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);// Good way is optional chaining
+        // setFilteredRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     
     // Normal js varible
@@ -29,8 +31,11 @@ export const Body = () => {
                 <div className="search">
                     <input type="text" placeholder="Search for restraunts" value={searchText} onChange={ (e) => setSearchText(e.target.value) }/>
                     <button className="search-btn" onClick={ () => {
-                        const filteredRestrauntList = restrauntList.filter((res) => res.info.name.toLowerCase().includes(searchText))
-                        setRestrauntList(filteredRestrauntList);
+                        filteredRestrauntList = restrauntList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                        setRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : setRestrauntList(''));
+
+                        // next task to improve search such that evertime is make a search it  earch from original list
+
                     }}>Search</button>
                 </div>
                 <button className="filter-btn" onClick={() =>{

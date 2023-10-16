@@ -27430,8 +27430,9 @@ var _s = $RefreshSig$();
 const Body = ()=>{
     _s();
     //state variable
-    let [restrauntList, setRestrauntList] = (0, _react.useState)([]); // resList or data from an API
-    let [searchText, setSearchText] = (0, _react.useState)("");
+    const [restrauntList, setRestrauntList] = (0, _react.useState)([]); // resList or data from an API
+    const [searchText, setSearchText] = (0, _react.useState)("");
+    CONST[filteredRestrauntList, setFilteredRestrauntList] = (0, _react.useState)([]);
     // whenver there is change in state variable, react triggers reconcilliation cycle, the component will re-render.
     (0, _react.useEffect)(()=>{
         fetchData();
@@ -27446,7 +27447,7 @@ const Body = ()=>{
     // conditional rendering
     return restrauntList?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 26,
+        lineNumber: 27,
         columnNumber: 44
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
@@ -27464,43 +27465,43 @@ const Body = ()=>{
                                 onChange: (e)=>setSearchText(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 30,
+                                lineNumber: 31,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                 className: "search-btn",
                                 onClick: ()=>{
-                                    const filteredRestrauntList = restrauntList.filter((res)=>res.info.name.toLowerCase().includes(searchText));
-                                    setRestrauntList(filteredRestrauntList);
+                                    const filteredRestrauntList1 = restrauntList.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                                    setRestrauntList(filteredRestrauntList1.length ? filteredRestrauntList1 : setRestrauntList(""));
                                 },
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 31,
+                                lineNumber: 32,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 29,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "filter-btn",
                         onClick: ()=>{
-                            const filteredRestrauntList = restrauntList.filter((list)=>list.info.avgRating > 4);
-                            setRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : restrauntList);
+                            const filteredRestrauntList1 = restrauntList.filter((list)=>list.info.avgRating > 4);
+                            setRestrauntList(filteredRestrauntList1.length ? filteredRestrauntList1 : restrauntList);
                         },
                         children: "Top Rated Restraunts"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 36,
+                        lineNumber: 37,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27510,23 +27511,23 @@ const Body = ()=>{
                         resData: restro
                     }, restro.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 44,
+                        lineNumber: 45,
                         columnNumber: 28
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 41,
+                lineNumber: 42,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 27,
+        lineNumber: 28,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "rBK7QccbVL8sw/HKS2bZQqad2SY=");
+_s(Body, "wb1El5KmnEleqXx7cDTM4QfLq6k=");
 _c = Body;
 var _c;
 $RefreshReg$(_c, "Body");

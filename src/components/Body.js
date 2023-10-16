@@ -20,7 +20,7 @@ export const Body = () => {
         const json = await data.json();
         // setRestrauntList(json.data.cards[2].data.data.cards)// Bad way
         setRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);// Good way is optional chaining
-        // setFilteredRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     
     // Normal js varible
@@ -31,21 +31,18 @@ export const Body = () => {
                 <div className="search">
                     <input type="text" placeholder="Search for restraunts" value={searchText} onChange={ (e) => setSearchText(e.target.value) }/>
                     <button className="search-btn" onClick={ () => {
-                        filteredRestrauntList = restrauntList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()))
-                        setRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : setRestrauntList(''));
-
-                        // next task to improve search such that evertime is make a search it  earch from original list
-
+                        const searchResult = restrauntList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                        setFilteredRestrauntList(searchResult.length ? searchResult : setFilteredRestrauntList(''));
                     }}>Search</button>
                 </div>
                 <button className="filter-btn" onClick={() =>{
-                    const filteredRestrauntList = restrauntList.filter( (list) => list.info.avgRating > 4 )
+                    const filteredRestrauntList = restrauntList.filter( (list) => list.info.avgRating > 4 );
                     setRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : restrauntList);
                 }}>Top Rated Restraunts</button>
             </div>
             <div className="res-container">
             {
-                restrauntList?.map((restro) => {
+                filteredRestrauntList?.map((restro) => {
                     return <RestrauntCard key={restro.id} resData={restro}/>;
                 })
             }

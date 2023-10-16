@@ -773,3 +773,4 @@ How setBtnName is able to update the value of const btnName isnt it defying the 
 Ans: it is able to do it because every time whn setBtnName() call is made btnName is new variable than it was before.
 hence const remains the same as is.
 
+Guru Mantra: "CODE SLOW" those who code faster take alot tiem to debug, those who code slow dont need it all.

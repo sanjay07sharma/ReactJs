@@ -2932,29 +2932,29 @@ var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _header = require("./components/Header");
 var _body = require("./components/Body");
-var _about = require("./components/About");
-var _contact = require("./components/Contact");
+var _about = require("./components/About"); // Named import
+var _contact = require("./components/Contact"); // Default import
+var _contactDefault = parcelHelpers.interopDefault(_contact);
 var _reactRouterDom = require("react-router-dom");
 // RouterProvider is a context provider that provides routing context to all descendants.
 const AppLayout = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "app",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _header.Header), {}, void 0, false, {
                 fileName: "src/App.js",
                 lineNumber: 14,
-                columnNumber: 9
+                columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _body.Body), {}, void 0, false, {
                 fileName: "src/App.js",
                 lineNumber: 15,
-                columnNumber: 9
+                columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
         lineNumber: 13,
-        columnNumber: 5
+        columnNumber: 9
     }, undefined);
 };
 _c = AppLayout;
@@ -2964,7 +2964,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
             fileName: "src/App.js",
             lineNumber: 22,
-            columnNumber: 31
+            columnNumber: 35
         }, undefined)
     },
     {
@@ -2972,27 +2972,30 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _about.About), {}, void 0, false, {
             fileName: "src/App.js",
             lineNumber: 23,
-            columnNumber: 36
+            columnNumber: 40
         }, undefined)
     },
     {
         path: "/contact",
-        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contact.Contact), {}, void 0, false, {
+        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
             fileName: "src/App.js",
             lineNumber: 24,
-            columnNumber: 37
+            columnNumber: 41
         }, undefined)
     }
 ]);
 const root = (0, _reactDomDefault.default).createRoot(document.getElementById("root"));
 // Initally we were rendering the AppLayout directly
-root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
+// root.render(<AppLayout/>); //we cant render directly
+// We will use router provider to provide routing context to all components.
+// so change root.render(<AppLayout/>)  --> root.render(<RouterProvider router={appRouter}><AppLayout/></RouterProvider>)
+root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterProvider), {
+    router: appRouter
+}, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 34,
+    lineNumber: 36,
     columnNumber: 13
-}, undefined)); //we cant render directly
- // We will use router provider to provide routing context to all components.
- // so change root.render(<AppLayout/>)  --> root.render(<RouterProvider router={appRouter}><AppLayout/></RouterProvider>)
+}, undefined));
 var _c;
 $RefreshReg$(_c, "AppLayout");
 
@@ -3001,7 +3004,7 @@ $RefreshReg$(_c, "AppLayout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./components/Header":"hsJbF","./components/Body":"8yaV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./components/Header":"hsJbF","./components/Body":"8yaV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./components/About":"9R1Eu","./components/Contact":"cgAOG"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("1e5f31572cbcece0");
 
@@ -27463,7 +27466,6 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Body", ()=>Body);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _restrauntCard = require("./RestrauntCard");
-// import resList from "../utils/mockData";
 var _react = require("react");
 var _shimmer = require("./Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
@@ -27489,7 +27491,7 @@ const Body = ()=>{
     // conditional rendering
     return restrauntList?.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 28,
+        lineNumber: 27,
         columnNumber: 44
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "body",
@@ -27507,7 +27509,7 @@ const Body = ()=>{
                                 onChange: (e)=>setSearchText(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 32,
+                                lineNumber: 31,
                                 columnNumber: 21
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27519,13 +27521,13 @@ const Body = ()=>{
                                 children: "Search"
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 33,
+                                lineNumber: 32,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 31,
+                        lineNumber: 30,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27537,13 +27539,13 @@ const Body = ()=>{
                         children: "Top Rated Restraunts"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 38,
+                        lineNumber: 37,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 30,
+                lineNumber: 29,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27553,19 +27555,19 @@ const Body = ()=>{
                         resData: restro
                     }, restro.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 46,
+                        lineNumber: 45,
                         columnNumber: 28
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 43,
+                lineNumber: 42,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/Body.js",
-        lineNumber: 29,
+        lineNumber: 28,
         columnNumber: 9
     }, undefined);
 };
@@ -33950,6 +33952,86 @@ function persistAppliedTransitions(_window, transitions) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["1xC6H","cJcMZ","2kQhy"], "2kQhy", "parcelRequiredf89")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9R1Eu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5b98 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5b98.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "About", ()=>About);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const About = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "About"
+            }, void 0, false, {
+                fileName: "src/components/About.js",
+                lineNumber: 4,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "This is the react about page."
+            }, void 0, false, {
+                fileName: "src/components/About.js",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/About.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+} // export default About;
+;
+_c = About;
+var _c;
+$RefreshReg$(_c, "About");
+
+  $parcel$ReactRefreshHelpers$5b98.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cgAOG":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ee46 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ee46.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Contact = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: "Contact"
+        }, void 0, false, {
+            fileName: "src/components/Contact.js",
+            lineNumber: 4,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/Contact.js",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
+};
+_c = Contact;
+exports.default = Contact;
+var _c;
+$RefreshReg$(_c, "Contact");
+
+  $parcel$ReactRefreshHelpers$ee46.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","cJcMZ","2kQhy"], "2kQhy", "parcelRequiredf89")
 
 //# sourceMappingURL=index.7271efb6.js.map

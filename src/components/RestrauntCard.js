@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { CDN_URL } from "../utils/constants";
 
 export const RestrauntCard = (props) => {
@@ -11,6 +12,11 @@ export const RestrauntCard = (props) => {
     costForTwo,
     cloudinaryImageId,
   } = resData.info;
+
+  const [order, updateOrder] = useState([]); // Try to store value of selected item and use it for card.
+      // Todo: add item to plate and update on card
+
+
   return (
     <div className="res-card">
       <img className="res-logo" src={CDN_URL + cloudinaryImageId} />
@@ -18,7 +24,7 @@ export const RestrauntCard = (props) => {
       <h4 class="cuisines">{cuisines.join(", ")}</h4>
       <h4>{avgRating}</h4>
       <h4>{costForTwo}</h4>
-      {/* <h4>{ + " minutes"}</h4> */}
+      <button className="add_to_cart" onClick={ () => console.log("add item to plate and update on card")}>Add to Plate</button>
     </div>
   );
 };

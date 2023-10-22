@@ -4,6 +4,7 @@ import { Header } from "./components/Header";
 import { Body } from "./components/Body";
 import { About } from "./components/About"; // Named import
 import Contact from "./components/Contact"; // Default import
+import Cart from "./components/Cart";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // RouterProvider is a context provider that provides routing context to all descendants.
@@ -22,6 +23,7 @@ const appRouter = createBrowserRouter(
             { path: "/", element: <AppLayout/> },
             { path: "/about", element: <About/> },
             {path: "/contact", element: <Contact/>},
+            {path: "/cart", element: <Cart/>},
         ]
     )
 

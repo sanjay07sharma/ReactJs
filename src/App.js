@@ -7,41 +7,60 @@ import Contact from "./components/Contact"; // Default import
 import Cart from "./components/Cart";
 import ErrorPage from "./components/Error";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createRoot } from 'react-dom/client';
 
 // RouterProvider is a context provider that provides routing context to all descendants.
 
+/** react router dom provides something called as Outlet 
+ * Outlet is a placeholder for the content of the current route.
+ * Outlet is a component that renders the content of the current route.
+*/
+
+import { Outlet } from "react-router-dom";
 const AppLayout = () => {
     return (
         <div>
             <Header/>
-            <Body/>
+            <Outlet/>
         </div>
     )
 }
 
+/** We will use createBrowserRouter to create a router object. 
+ * createBrowserRouter takes an array of routes as an argument.
+ * Each route is an object with the following properties:
+ * path: the path of the route
+ * element: the element to render when the route matches
+ * errorElement: the element to render when the route fails to match
+ * This also has something called children property which is an array of routes.
+ * This is used to nest routes.
+ * and outlet is used to render the content of the current route.
+ */
 const appRouter = createBrowserRouter(
         [
             { 
                 path: "/",
                 element: <AppLayout/>,
+                children: [
+                    {
+                        path: "/about",
+                        element: <About/>
+                    },
+                    {
+                        path: "/contact",
+                        element: <Contact/>
+                    },
+                    {
+                        path: "/cart",
+                        element: <Cart/>
+                    },
+                ],
                 errorElement: <ErrorPage/>
-            },
-            {
-                path: "/about",
-                element: <About/>
-            },
-            {
-                path: "/contact",
-                element: <Contact/>
-            },
-            {
-                path: "/cart",
-                element: <Cart/>
             },
         ]
     )
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 
 
 // Initally we were rendering the AppLayout directly

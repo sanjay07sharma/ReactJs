@@ -2937,6 +2937,8 @@ var _contact = require("./components/Contact"); // Default import
 var _contactDefault = parcelHelpers.interopDefault(_contact);
 var _cart = require("./components/Cart");
 var _cartDefault = parcelHelpers.interopDefault(_cart);
+var _error = require("./components/Error");
+var _errorDefault = parcelHelpers.interopDefault(_error);
 var _reactRouterDom = require("react-router-dom");
 // RouterProvider is a context provider that provides routing context to all descendants.
 const AppLayout = ()=>{
@@ -2944,18 +2946,18 @@ const AppLayout = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _header.Header), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 15,
+                lineNumber: 16,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _body.Body), {}, void 0, false, {
                 fileName: "src/App.js",
-                lineNumber: 16,
+                lineNumber: 17,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.js",
-        lineNumber: 14,
+        lineNumber: 15,
         columnNumber: 9
     }, undefined);
 };
@@ -2965,32 +2967,37 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 23,
-            columnNumber: 35
+            lineNumber: 26,
+            columnNumber: 26
+        }, undefined),
+        errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
+            fileName: "src/App.js",
+            lineNumber: 27,
+            columnNumber: 31
         }, undefined)
     },
     {
         path: "/about",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _about.About), {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 24,
-            columnNumber: 40
+            lineNumber: 31,
+            columnNumber: 26
         }, undefined)
     },
     {
         path: "/contact",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _contactDefault.default), {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 25,
-            columnNumber: 41
+            lineNumber: 35,
+            columnNumber: 26
         }, undefined)
     },
     {
         path: "/cart",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
             fileName: "src/App.js",
-            lineNumber: 26,
-            columnNumber: 38
+            lineNumber: 39,
+            columnNumber: 26
         }, undefined)
     }
 ]);
@@ -3003,7 +3010,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: appRouter
 }, void 0, false, {
     fileName: "src/App.js",
-    lineNumber: 38,
+    lineNumber: 52,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -3014,7 +3021,7 @@ $RefreshReg$(_c, "AppLayout");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./components/Header":"hsJbF","./components/Body":"8yaV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./components/About":"9R1Eu","./components/Contact":"cgAOG","./components/Cart":"h8J3U"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./components/Header":"hsJbF","./components/Body":"8yaV8","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","./components/About":"9R1Eu","./components/Contact":"cgAOG","./components/Cart":"h8J3U","./components/Error":"kvula"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("1e5f31572cbcece0");
 
@@ -34091,6 +34098,88 @@ $RefreshReg$(_c, "Cart");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","cJcMZ","2kQhy"], "2kQhy", "parcelRequiredf89")
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kvula":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0ba4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0ba4.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _reactRouterDom = require("react-router-dom");
+var _s = $RefreshSig$();
+// userRouteError is a hook that returns the error object for the current route.
+// it explains why the route failed to render.
+// having useRouteError in our page makes understanding and debugging errors easier.
+const ErrorPage = ()=>{
+    _s();
+    const err = (0, _reactRouterDom.useRouteError)();
+    console.log(err);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "error-container",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: "Oops! Something went wrong."
+            }, void 0, false, {
+                fileName: "src/components/Error.js",
+                lineNumber: 12,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                children: "Please try again later."
+            }, void 0, false, {
+                fileName: "src/components/Error.js",
+                lineNumber: 13,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: [
+                    " ",
+                    err.status,
+                    " : ",
+                    err.statusText,
+                    " "
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Error.js",
+                lineNumber: 14,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: [
+                    " ",
+                    err.error.message,
+                    " "
+                ]
+            }, void 0, true, {
+                fileName: "src/components/Error.js",
+                lineNumber: 15,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/Error.js",
+        lineNumber: 11,
+        columnNumber: 9
+    }, undefined);
+};
+_s(ErrorPage, "U5GmGaAmh0j0MVy+E8WdBnjlm7s=", false, function() {
+    return [
+        (0, _reactRouterDom.useRouteError)
+    ];
+});
+_c = ErrorPage;
+exports.default = ErrorPage;
+var _c;
+$RefreshReg$(_c, "ErrorPage");
+
+  $parcel$ReactRefreshHelpers$0ba4.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}]},["1xC6H","cJcMZ","2kQhy"], "2kQhy", "parcelRequiredf89")
 
 //# sourceMappingURL=index.7271efb6.js.map

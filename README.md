@@ -52,3 +52,7 @@ Normal Js utility function.
 -useSate()  - super powerful react variables.
             - when ever the state varibale update react rerenders the component.
 -useEffect()
+
+Two tpyes of routing:
+1) client side
+2) server side

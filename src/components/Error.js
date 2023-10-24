@@ -12,7 +12,7 @@ const ErrorPage = () => {
             <h1>Oops! Something went wrong.</h1>
             <p>Please try again later.</p>
             <h3> {err.status} : {err.statusText} </h3>
-            <h2> {err.error.message} </h2>
+            <h2> {err?.error?.message} </h2>
         </div>
     );
 };

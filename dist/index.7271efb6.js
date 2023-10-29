@@ -2937,10 +2937,10 @@ var _cart = require("./components/Cart");
 var _cartDefault = parcelHelpers.interopDefault(_cart);
 var _error = require("./components/Error");
 var _errorDefault = parcelHelpers.interopDefault(_error);
-var _reactRouterDom = require("react-router-dom");
-var _client = require("react-dom/client");
 var _restrauntMenu = require("./components/RestrauntMenu");
 var _restrauntMenuDefault = parcelHelpers.interopDefault(_restrauntMenu);
+var _reactRouterDom = require("react-router-dom");
+var _client = require("react-dom/client");
 const AppLayout = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
@@ -3014,7 +3014,7 @@ _c = AppLayout;
                 }, undefined)
             },
             {
-                path: "/restraunt/:resId",
+                path: "/resInfo/:resId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restrauntMenuDefault.default), {}, void 0, false, {
                     fileName: "src/App.js",
                     lineNumber: 64,
@@ -34281,29 +34281,29 @@ const RestaurantMenu = ()=>{
     async function fetchMenu() {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        setResInfo(json.data?.cards);
-        console.log(json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants, "555", resInfo);
+        setResInfo(json.data);
     }
     if (resInfo === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmer.Shimmer), {}, void 0, false, {
         fileName: "src/components/RestrauntMenu.js",
-        lineNumber: 17,
+        lineNumber: 15,
         columnNumber: 34
     }, undefined);
+    const resData = resInfo.length !== 0 && resInfo?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "menu",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Name of restaurant"
+                children: resData[0].info.name
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 20,
+                lineNumber: 21,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Menu"
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 21,
+                lineNumber: 22,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -34312,33 +34312,33 @@ const RestaurantMenu = ()=>{
                         children: "Pizza"
                     }, void 0, false, {
                         fileName: "src/components/RestrauntMenu.js",
-                        lineNumber: 23,
+                        lineNumber: 24,
                         columnNumber: 21
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                         children: "Burger"
                     }, void 0, false, {
                         fileName: "src/components/RestrauntMenu.js",
-                        lineNumber: 24,
+                        lineNumber: 25,
                         columnNumber: 21
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                         children: "Pasta"
                     }, void 0, false, {
                         fileName: "src/components/RestrauntMenu.js",
-                        lineNumber: 25,
+                        lineNumber: 26,
                         columnNumber: 21
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntMenu.js",
-        lineNumber: 19,
+        lineNumber: 20,
         columnNumber: 13
     }, undefined);
 };

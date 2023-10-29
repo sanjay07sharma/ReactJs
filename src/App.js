@@ -5,6 +5,7 @@ import { About } from "./components/About"; // Named import
 import Contact from "./components/Contact"; // Default import
 import Cart from "./components/Cart";
 import ErrorPage from "./components/Error";
+import RestaurantMenu from "./components/RestrauntMenu";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 
@@ -16,7 +17,6 @@ import { createRoot } from 'react-dom/client';
 */
 
 import { Outlet } from "react-router-dom";
-import RestaurantMenu from "./components/RestrauntMenu";
 const AppLayout = () => {
     return (
         <div>
@@ -60,7 +60,7 @@ const appRouter = createBrowserRouter(
                         element: <Cart/>
                     },
                     {
-                        path: "/restraunt/:resId", // this "/:resId" denotes a dynamic route
+                        path: "/resInfo/:resId", // this "/:resId" denotes a dynamic route
                         element: <RestaurantMenu/>
                     },
                 ],

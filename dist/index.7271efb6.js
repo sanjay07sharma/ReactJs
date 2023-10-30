@@ -12478,7 +12478,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const Shimmer = ()=>{
+const shimmer = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "shimmer-wrappper",
         children: [
@@ -12573,10 +12573,7 @@ const Shimmer = ()=>{
         columnNumber: 9
     }, undefined);
 };
-_c = Shimmer;
-exports.default = Shimmer;
-var _c;
-$RefreshReg$(_c, "Shimmer");
+exports.default = shimmer;
 
   $parcel$ReactRefreshHelpers$0b04.postlude(module);
 } finally {
@@ -34272,77 +34269,80 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _shimmer = require("./Shimmer");
 var _s = $RefreshSig$();
+const API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING";
 const RestaurantMenu = ()=>{
     _s();
-    const [resInfo, setResInfo] = (0, _react.useState)([]); // resInfo is an array of objects, each object contains information about a restaurant.
+    const [resInfo, setResInfo] = (0, _react.useState)(null);
+    const [isLoading, setIsLoading] = (0, _react.useState)(true);
+    const [error, setError] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
         fetchMenu();
-    }, []); // i do not intend to run this effect again, so i have passed an empty array as a second argument.
-    async function fetchMenu() {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        setResInfo(json.data);
-    }
-    if (resInfo === null) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmer.Shimmer), {}, void 0, false, {
+    }, []);
+    const fetchMenu = async ()=>{
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+            setResInfo(data?.data);
+            setIsLoading(false);
+        } catch (error) {
+            setError(error);
+            setIsLoading(false);
+        }
+    };
+    if (isLoading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("shimmer", {}, void 0, false, {
         fileName: "src/components/RestrauntMenu.js",
-        lineNumber: 15,
-        columnNumber: 34
+        lineNumber: 28,
+        columnNumber: 12
     }, undefined);
-    const resData = resInfo.length !== 0 && resInfo?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    if (error) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: [
+            "Error: ",
+            error.message
+        ]
+    }, void 0, true, {
+        fileName: "src/components/RestrauntMenu.js",
+        lineNumber: 32,
+        columnNumber: 12
+    }, undefined);
+    const { name , id , cuisines  } = resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "menu",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: resData[0].info.name
+                children: name || "No restaurant found"
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 21,
-                columnNumber: 17
+                lineNumber: 39,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Menu"
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 22,
-                columnNumber: 17
+                lineNumber: 40,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: "Pizza"
-                    }, void 0, false, {
-                        fileName: "src/components/RestrauntMenu.js",
-                        lineNumber: 24,
-                        columnNumber: 21
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: "Burger"
-                    }, void 0, false, {
-                        fileName: "src/components/RestrauntMenu.js",
-                        lineNumber: 25,
-                        columnNumber: 21
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                        children: "Pasta"
-                    }, void 0, false, {
-                        fileName: "src/components/RestrauntMenu.js",
-                        lineNumber: 26,
-                        columnNumber: 21
-                    }, undefined)
-                ]
-            }, void 0, true, {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                    children: cuisines.split(",") || "Nothing to display"
+                }, void 0, false, {
+                    fileName: "src/components/RestrauntMenu.js",
+                    lineNumber: 42,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 23,
-                columnNumber: 17
+                lineNumber: 41,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntMenu.js",
-        lineNumber: 20,
-        columnNumber: 13
+        lineNumber: 38,
+        columnNumber: 5
     }, undefined);
 };
-_s(RestaurantMenu, "nf5vhWK5g+GSXEJoc1vFGDyr7eI=");
+_s(RestaurantMenu, "PzK1roSAAEvnQyHu0bPmL87kQZk=");
 _c = RestaurantMenu;
 exports.default = RestaurantMenu;
 var _c;

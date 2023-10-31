@@ -12478,7 +12478,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const shimmer = ()=>{
+const Shimmer = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "shimmer-wrappper",
         children: [
@@ -12573,7 +12573,10 @@ const shimmer = ()=>{
         columnNumber: 9
     }, undefined);
 };
-exports.default = shimmer;
+_c = Shimmer;
+exports.default = Shimmer;
+var _c;
+$RefreshReg$(_c, "Shimmer");
 
   $parcel$ReactRefreshHelpers$0b04.postlude(module);
 } finally {
@@ -34268,6 +34271,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _shimmer = require("./Shimmer");
+var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
 const API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING";
 const RestaurantMenu = ()=>{
@@ -34289,7 +34293,7 @@ const RestaurantMenu = ()=>{
             setIsLoading(false);
         }
     };
-    if (isLoading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("shimmer", {}, void 0, false, {
+    if (isLoading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestrauntMenu.js",
         lineNumber: 28,
         columnNumber: 12
@@ -34304,7 +34308,9 @@ const RestaurantMenu = ()=>{
         lineNumber: 32,
         columnNumber: 12
     }, undefined);
-    const { name , id , cuisines  } = resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
+    const { name , areaName , avgRating , locality , costForTwo , cloudinaryImageId , id , cuisines  } = resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
+    console.log(resInfo);
+    const { itemCards  } = resInfo;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "menu",
         children: [
@@ -34312,33 +34318,68 @@ const RestaurantMenu = ()=>{
                 children: name || "No restaurant found"
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 39,
+                lineNumber: 41,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: areaName || "No restaurant found"
+            }, void 0, false, {
+                fileName: "src/components/RestrauntMenu.js",
+                lineNumber: 42,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: avgRating || "No restaurant found"
+            }, void 0, false, {
+                fileName: "src/components/RestrauntMenu.js",
+                lineNumber: 43,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: locality || "No restaurant found"
+            }, void 0, false, {
+                fileName: "src/components/RestrauntMenu.js",
+                lineNumber: 44,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: costForTwo || "No restaurant found"
+            }, void 0, false, {
+                fileName: "src/components/RestrauntMenu.js",
+                lineNumber: 45,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                children: id || "No restaurant found"
+            }, void 0, false, {
+                fileName: "src/components/RestrauntMenu.js",
+                lineNumber: 46,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Menu"
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 40,
+                lineNumber: 47,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                    children: cuisines.split(",") || "Nothing to display"
+                    children: cuisines.toString() || "Nothing to display"
                 }, void 0, false, {
                     fileName: "src/components/RestrauntMenu.js",
-                    lineNumber: 42,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 41,
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntMenu.js",
-        lineNumber: 38,
+        lineNumber: 40,
         columnNumber: 5
     }, undefined);
 };

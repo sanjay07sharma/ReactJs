@@ -1,4 +1,4 @@
-const shimmer = () => {
+const Shimmer = () => {
     return (
         <div className="shimmer-wrappper">
             <div className="shimmer-card"></div>
@@ -17,4 +17,4 @@ const shimmer = () => {
     );
 }
 
-export default shimmer;
+export default Shimmer;

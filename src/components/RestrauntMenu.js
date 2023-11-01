@@ -32,9 +32,7 @@ const RestaurantMenu = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  const {name, areaName, avgRating, locality, costForTwo, cloudinaryImageId, id, cuisines } = resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
-  console.log(resInfo)
-  const {itemCards} = resInfo
+  const {name, areaName, avgRating, locality, costForTwo, id, cuisines } = resInfo?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
 
   return (
     <div className='menu'>

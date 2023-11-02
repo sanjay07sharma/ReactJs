@@ -31,21 +31,38 @@ const RestaurantMenu = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
-  const {name, areaName, avgRating, locality, costForTwo, id, cuisines } = resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
+  const {name, areaName, avgRating, locality, costForTwo, cuisines } =  resInfo?.cards[0]?.card?.card?.info;
+  const itemCards = resInfo?.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
   resInfo && console.log(resInfo?.cards);
   return (
     <div className='menu'>
       <h1>{name || 'No restaurant found'}</h1>
-      <h2>{areaName || 'No restaurant found'}</h2>
-      <h2>{avgRating || 'No restaurant found'}</h2>
-      <h2>{locality || 'No restaurant found'}</h2>
-      <h2>{costForTwo || 'No restaurant found'}</h2>
-      <h1>{id || 'No restaurant found'}</h1>
-      <h1>Cuisines</h1>
-      <ul>
-        <li>{cuisines.toString() || 'Nothing to display'}</li>
-      </ul>
+      <h3>{("Address: "+areaName+"-"+locality) || 'No restaurant found'}</h3>
+      <h3>{("Average Rating: "+avgRating) || 'No restaurant found'}</h3>
+      <h3>{("costForTwo: "+costForTwo/100) || 'No restaurant found'}</h3>
+      <h2>{("Cuisines: " + cuisines.toString()) || 'Nothing to display'}</h2>
+      <h1>Menu</h1>
+      {itemCards.map((item, index) => {
+        if (item.card.card.itemCards) {
+          return (
+            <div class="itemCardContainer">
+              <div class='itemCardName'>
+                <h1>{item.card.card.title || ""}</h1>
+              </div>
+              <div key={index}>
+                {item.card.card.itemCards.map((item, index) => {
+                  return (
+                    <div class="itemCards" key={index}>
+                      <h3>{item.card.info.name}</h3>
+                      <h4>{"Rs. "+item.card.info.price/100}</h4>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        }
+      })}
     </div>
   );
 };

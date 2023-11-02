@@ -108,3 +108,27 @@
     background: linear-gradient(90deg, #f6f7f8 25%, #e9ebec 50%, #f6f7f8 75%);
     background-size: 200% 100%;
 }
+
+.itemCardContainer {
+    display: block;
+    border: 1px solid #e1dddd; /* Add a border */
+}
+
+.itemCardName {
+    display: block;
+    border: 1px solid #bab7b7; /* Add a border */
+}
+
+.itemCard {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.itemCards {
+    /* justify-content: space-between; */
+    border: 1px solid #151414; /* Add a border */
+    height: 100px;
+    width: 100%;
+    padding: 10px;
+    background-color: #dbd7d7;
+}

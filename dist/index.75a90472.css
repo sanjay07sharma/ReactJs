@@ -105,4 +105,27 @@
   animation: 2s linear infinite shimmer;
 }
 
+.itemCardContainer {
+  border: 1px solid #e1dddd;
+  display: block;
+}
+
+.itemCardName {
+  border: 1px solid #bab7b7;
+  display: block;
+}
+
+.itemCard {
+  flex-wrap: nowrap;
+  display: flex;
+}
+
+.itemCards {
+  height: 100px;
+  width: 100%;
+  background-color: #dbd7d7;
+  border: 1px solid #151414;
+  padding: 10px;
+}
+
 /*# sourceMappingURL=index.75a90472.css.map */

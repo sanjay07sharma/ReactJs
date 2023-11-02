@@ -34287,7 +34287,6 @@ const RestaurantMenu = ()=>{
             const response = await fetch(API_URL);
             const json = await response.json();
             setResInfo(json?.data);
-            debugger;
             setIsLoading(false);
         } catch (error) {
             setError(error);
@@ -34296,7 +34295,7 @@ const RestaurantMenu = ()=>{
     };
     if (isLoading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/RestrauntMenu.js",
-        lineNumber: 29,
+        lineNumber: 28,
         columnNumber: 12
     }, undefined);
     if (error) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34306,10 +34305,12 @@ const RestaurantMenu = ()=>{
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntMenu.js",
-        lineNumber: 33,
+        lineNumber: 32,
         columnNumber: 12
     }, undefined);
-    const { name , areaName , avgRating , locality , costForTwo , id , cuisines  } = resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
+    debugger;
+    const { name , areaName , avgRating , locality , costForTwo , cuisines  } = resInfo?.cards[0]?.card?.card?.info;
+    const itemCards = resInfo?.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
     resInfo && console.log(resInfo?.cards);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "menu",
@@ -34321,61 +34322,100 @@ const RestaurantMenu = ()=>{
                 lineNumber: 40,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: areaName || "No restaurant found"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Address: " + areaName + "-" + locality || "No restaurant found"
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
                 lineNumber: 41,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: avgRating || "No restaurant found"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "Average Rating: " + avgRating
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
                 lineNumber: 42,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: locality || "No restaurant found"
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                children: "costForTwo: " + costForTwo / 100
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
                 lineNumber: 43,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                children: costForTwo || "No restaurant found"
+                children: "Cuisines: " + cuisines.toString()
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
                 lineNumber: 44,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: id || "No restaurant found"
+                children: "Menu"
             }, void 0, false, {
                 fileName: "src/components/RestrauntMenu.js",
                 lineNumber: 45,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                children: "Cuisines"
-            }, void 0, false, {
-                fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 46,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                    children: cuisines.toString() || "Nothing to display"
-                }, void 0, false, {
-                    fileName: "src/components/RestrauntMenu.js",
-                    lineNumber: 48,
-                    columnNumber: 9
-                }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/RestrauntMenu.js",
-                lineNumber: 47,
-                columnNumber: 7
-            }, undefined)
+            itemCards.map((item, index)=>{
+                if (item.card.card.itemCards) {
+                    debugger;
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        class: "itemCardContainer",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                class: "itemCardName",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                    children: item.card.card.title || ""
+                                }, void 0, false, {
+                                    fileName: "src/components/RestrauntMenu.js",
+                                    lineNumber: 52,
+                                    columnNumber: 17
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/components/RestrauntMenu.js",
+                                lineNumber: 51,
+                                columnNumber: 15
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                children: item.card.card.itemCards.map((item, index)=>{
+                                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        class: "itemCards",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                                children: item.card.info.name
+                                            }, void 0, false, {
+                                                fileName: "src/components/RestrauntMenu.js",
+                                                lineNumber: 58,
+                                                columnNumber: 23
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
+                                                children: "Rs. " + item.card.info.price / 100
+                                            }, void 0, false, {
+                                                fileName: "src/components/RestrauntMenu.js",
+                                                lineNumber: 59,
+                                                columnNumber: 23
+                                            }, undefined)
+                                        ]
+                                    }, index, true, {
+                                        fileName: "src/components/RestrauntMenu.js",
+                                        lineNumber: 57,
+                                        columnNumber: 21
+                                    }, undefined);
+                                })
+                            }, index, false, {
+                                fileName: "src/components/RestrauntMenu.js",
+                                lineNumber: 54,
+                                columnNumber: 15
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/RestrauntMenu.js",
+                        lineNumber: 50,
+                        columnNumber: 13
+                    }, undefined);
+                }
+            })
         ]
     }, void 0, true, {
         fileName: "src/components/RestrauntMenu.js",

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
 
-const API_URL = 'https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1972649&lng=72.61658609999999&page_type=DESKTOP_WEB_LISTING';
+const API_URL = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.1989115&lng=72.63803080000001&restaurantId=158851&catalog_qa=undefined&submitAction=ENTER';
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -15,8 +15,8 @@ const RestaurantMenu = () => {
   const fetchMenu = async () => {
     try {
       const response = await fetch(API_URL);
-      const data = await response.json();
-      setResInfo(data?.data);
+      const json = await response.json();
+      setResInfo(json?.data);
       setIsLoading(false);
     } catch (error) {
       setError(error);
@@ -32,8 +32,8 @@ const RestaurantMenu = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  const {name, areaName, avgRating, locality, costForTwo, id, cuisines } = resInfo?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
-
+  const {name, areaName, avgRating, locality, costForTwo, id, cuisines } = resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
+  resInfo && console.log(resInfo?.cards);
   return (
     <div className='menu'>
       <h1>{name || 'No restaurant found'}</h1>
@@ -42,7 +42,7 @@ const RestaurantMenu = () => {
       <h2>{locality || 'No restaurant found'}</h2>
       <h2>{costForTwo || 'No restaurant found'}</h2>
       <h1>{id || 'No restaurant found'}</h1>
-      <h1>Menu</h1>
+      <h1>Cuisines</h1>
       <ul>
         <li>{cuisines.toString() || 'Nothing to display'}</li>
       </ul>

@@ -16,7 +16,6 @@ export const RestrauntCard = (props) => {
   const [order, updateOrder] = useState([]); // Try to store value of selected item and use it for card.
       // Todo: add item to plate and update on card
 
-
   return (
     <div className="res-card">
       <img className="res-logo" src={CDN_URL + cloudinaryImageId} />

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
+import { useParams } from 'react-router-dom';
+import { MENU_API } from '../utils/constants'
 
-const API_URL = 'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.1989115&lng=72.63803080000001&restaurantId=158851&catalog_qa=undefined&submitAction=ENTER';
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { resId } = useParams();
 
   useEffect(() => {
     fetchMenu();
@@ -14,7 +16,7 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch( MENU_API + resId );
       const json = await response.json();
       setResInfo(json?.data);
       setIsLoading(false);
@@ -33,7 +35,7 @@ const RestaurantMenu = () => {
   }
   const {name, areaName, avgRating, locality, costForTwo, cuisines } =  resInfo?.cards[0]?.card?.card?.info;
   const itemCards = resInfo?.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
-  resInfo && console.log(resInfo?.cards);
+  
   return (
     <div className='menu'>
       <h1>{name || 'No restaurant found'}</h1>

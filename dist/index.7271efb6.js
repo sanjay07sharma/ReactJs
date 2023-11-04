@@ -34402,7 +34402,7 @@ const RestaurantMenu = ()=>{
                                             columnNumber: 23
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                                            children: "Rs. " + item.card.info.price / 100
+                                            children: item.card.info.defaultPrice ? "Rs. " + item.card.info.defaultPrice / 100 : "Rs. " + item.card.info.price / 100
                                         }, void 0, false, {
                                             fileName: "src/components/RestrauntMenu.js",
                                             lineNumber: 59,

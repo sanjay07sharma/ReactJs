@@ -56,7 +56,7 @@ const RestaurantMenu = () => {
                   return (
                     <div class="itemCards" key={index}>
                       <h3>{item.card.info.name}</h3>
-                      <h4>{"Rs. "+item.card.info.price/100}</h4>
+                      <h4>{item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100}</h4>
                     </div>
                   )
                 })}

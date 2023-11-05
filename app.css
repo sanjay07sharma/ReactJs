@@ -132,3 +132,8 @@
     padding: 10px;
     background-color: #dbd7d7;
 }
+
+.user-card {
+    padding: 10px;
+    border: solid 1px #e1dddd;
+}

@@ -1024,3 +1024,9 @@ to render components in your React application. These array manipulation functio
 useful when working with dynamic data and lists of items in your UI.
 
 
+
+Behind the scene <Link> is nothing but a wrapper to anchor tag.
+
+
+
+Why we always have to use super(props) for class component?

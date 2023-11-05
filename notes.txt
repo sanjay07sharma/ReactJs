@@ -1023,4 +1023,21 @@ In all these examples, you can use the results obtained from map, filter, or red
 to render components in your React application. These array manipulation functions are very 
 useful when working with dynamic data and lists of items in your UI.
 
+Behind the scene <Link> is nothing but a wrapper to anchor tag.
 
+Why we always have to use super(props) for class component?
+
+
+React life cycle :
+
+sequence in which lifecycle works:
+About.js:23 parent constructor
+About.js:31 parent render
+UserClass.js:21 child constructor
+UserClass.js:29 child render
+UserClass.js:25 child Component is mounted
+About.js:27 parent Component is mounted
+
+
+why componentDidMount is used? 
+it is used o make api calls

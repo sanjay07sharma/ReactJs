@@ -12635,41 +12635,33 @@ class About extends (0, _reactDefault.default).Component {
         console.log("parent Component is mounted");
     }
     render() {
-        console.log("parent render");
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                     children: "About"
                 }, void 0, false, {
                     fileName: "src/components/About.js",
-                    lineNumber: 34,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     children: "This is the react about page."
                 }, void 0, false, {
                     fileName: "src/components/About.js",
-                    lineNumber: 35,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userDefault.default), {
-                    name: "Sanjay Sharma (function)"
-                }, void 0, false, {
-                    fileName: "src/components/About.js",
-                    lineNumber: 37,
+                    lineNumber: 34,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userClass.UserClass), {
-                    name: "Sanjay Sharma (class)"
+                    name: "Fiirst"
                 }, void 0, false, {
                     fileName: "src/components/About.js",
-                    lineNumber: 39,
+                    lineNumber: 38,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/About.js",
-            lineNumber: 33,
+            lineNumber: 32,
             columnNumber: 13
         }, this);
     }
@@ -12697,6 +12689,11 @@ const User = (props)=>{
     const [count, setCount] = (0, _react.useState)(0); // for functinal comoonent we use useState hook like this.
     // to use multiple state variables we can use multiple useState hooks.
     const [count2] = (0, _react.useState)(2);
+    (0, _react.useState)(()=>{}, []);
+    async function userInfo() {
+        const response = await fetch("https://api.github.com/users/sanjay07sharma");
+        const data = await response.json();
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         class: "user-card",
         children: [
@@ -12708,7 +12705,7 @@ const User = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/User.js",
-                lineNumber: 9,
+                lineNumber: 19,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -12719,7 +12716,7 @@ const User = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/User.js",
-                lineNumber: 10,
+                lineNumber: 20,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -12730,31 +12727,31 @@ const User = (props)=>{
                 ]
             }, void 0, true, {
                 fileName: "src/components/User.js",
-                lineNumber: 11,
+                lineNumber: 21,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: "Location: Gandhinagr"
             }, void 0, false, {
                 fileName: "src/components/User.js",
-                lineNumber: 12,
+                lineNumber: 22,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
                 children: "Contact : @sanjay07sharma"
             }, void 0, false, {
                 fileName: "src/components/User.js",
-                lineNumber: 13,
+                lineNumber: 23,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/User.js",
-        lineNumber: 8,
+        lineNumber: 18,
         columnNumber: 13
     }, undefined);
 };
-_s(User, "wi5D7M94Xh2RVnKCt1v5NCRST6k=");
+_s(User, "Y+wicTFMfp9bD5hWCyORjWci2gw=");
 _c = User;
 exports.default = User;
 var _c;
@@ -12784,50 +12781,41 @@ class UserClass extends (0, _reactDefault.default).Component {
     // it will render this piece of JSX
     constructor(props){
         super(props);
-        // using state in class component 
+        // using state in class component
         this.state = {
-            count: 0,
-            count2: 2
+            userInfo: {
+                name: "Dummy",
+                location: "Dummy",
+                avatar_url: "http://placekitten.com/g/64/64"
+            }
         };
-        /* not to repeat it two times like we do in functional component.
+    /* not to repeat it two times like we do in functional component.
             this.state = {
             count2 : 2,
         };
-        */ console.log("child constructor");
-    }
-    componentDidMount() {
-        console.log("child Component is mounted");
+        */ }
+    async componentDidMount() {
+        // this is the place where we can make API calls
+        // this is the place where we can do DOM manipulation
+        // this is the place where we can do event listeners
+        // this is the place where we can do subscriptions
+        // this is the place where we can do setIntervals
+        const response = await fetch("https://api.github.com/users/sanjay07sharma");
+        const data = await response.json();
+        this.setState({
+            userInfo: data
+        });
     }
     render() {
-        console.log("child render");
-        const { name  } = this.props;
+        const { name , location , avatar_url  } = this.state.userInfo;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             class: "user-card",
             children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                    children: [
-                        "count: ",
-                        this.state.count
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 34,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: /* initial approach 
-                    this.state.count = this.state.count + 1
-                    count: this.state.count + 1 
-
-                    Remember never ever mutate the state directly in react.
-                    */ ()=>this.setState({
-                            count: this.state.count + 1
-                        } // this.setState is similar to setCount in functional component, it takes an object
-                        ),
-                    children: "Increment"
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    src: avatar_url
                 }, void 0, false, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 35,
+                    lineNumber: 45,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -12838,27 +12826,23 @@ class UserClass extends (0, _reactDefault.default).Component {
                     ]
                 }, void 0, true, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 48,
+                    lineNumber: 46,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                    children: "Location: Gandhinagr"
-                }, void 0, false, {
+                    children: [
+                        "Location: ",
+                        location
+                    ]
+                }, void 0, true, {
                     fileName: "src/components/UserClass.js",
-                    lineNumber: 49,
-                    columnNumber: 17
-                }, this),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h4", {
-                    children: "Contact : @sanjay07sharma"
-                }, void 0, false, {
-                    fileName: "src/components/UserClass.js",
-                    lineNumber: 50,
+                    lineNumber: 47,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/components/UserClass.js",
-            lineNumber: 33,
+            lineNumber: 44,
             columnNumber: 13
         }, this);
     }

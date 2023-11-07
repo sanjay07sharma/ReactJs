@@ -4,6 +4,16 @@ const User = (props) => {
     const [count , setCount] = useState(0); // for functinal comoonent we use useState hook like this.
     // to use multiple state variables we can use multiple useState hooks.
     const [count2] = useState(2);
+
+    useState(() => {
+
+    }, [])
+
+    async function userInfo() {
+        const response = await fetch("https://api.github.com/users/sanjay07sharma");
+        const data = await response.json();
+    }
+
     return(
             <div class="user-card">
                 <h3>Count: {count} </h3>

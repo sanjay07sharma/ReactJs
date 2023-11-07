@@ -7,10 +7,13 @@ export class UserClass extends React.Component {
     constructor(props) {
         super(props);
 
-        // using state in class component 
+        // using state in class component
         this.state = {
-            count : 0,
-            count2 : 2, // this is how we do in class based component
+            userInfo :{
+                name: "Dummy",
+                location: "Dummy",
+                avatar_url: "http://placekitten.com/g/64/64",
+            }
         };
 
         /* not to repeat it two times like we do in functional component.
@@ -18,43 +21,31 @@ export class UserClass extends React.Component {
             count2 : 2,
         };
         */
-        console.log("child constructor")
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         // this is the place where we can make API calls
         // this is the place where we can do DOM manipulation
         // this is the place where we can do event listeners
         // this is the place where we can do subscriptions
         // this is the place where we can do setIntervals
+        const response = await fetch("https://api.github.com/users/sanjay07sharma");
+        const data = await response.json();
 
-        console.log("child Component is mounted");
+        this.setState({
+            userInfo: data,
+        });
     }
 
-    render() {
-        console.log("child render")
-        const {name} = this.props;
 
+    render() {
+        const { name , location , avatar_url } = this.state.userInfo;
         return(
             <div class="user-card">
-                <h2>count: {this.state.count}</h2>
-                <button onClick={
-                    /* initial approach 
-                    this.state.count = this.state.count + 1
-                    count: this.state.count + 1 
-
-                    Remember never ever mutate the state directly in react.
-                    */
-
-                    () => this.setState({
-                        count: this.state.count + 1,
-                    } // this.setState is similar to setCount in functional component, it takes an object
-                    
-                    )}>Increment</button>
+                <img src={avatar_url}/>
                 <h3>Name: {name} </h3>
-                <h3>Location: Gandhinagr</h3>
-                <h4>Contact : @sanjay07sharma</h4>
-            </div>
+                <h3>Location: {location}</h3>
+                </div>
         );
     }
 }

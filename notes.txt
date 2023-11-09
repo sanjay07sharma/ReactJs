@@ -23,6 +23,7 @@ meaning --> npx = executing a package, parcel goes the the osurce and build a de
 
 
 dont get react to your project through cdn links, instead getit through npm commands
+dont get react to your project through cdn links, instead getit through npm commands
 why?? fecthing from cdn is costly operations.
 so it beetter to make a network call have it on your node modukeules.
 
@@ -46,12 +47,14 @@ run and it will throw error
     Bundling.
     Compressing.
     Consistent Hashing --- read about it parcel.com
+    Consistent Hashing --- read about it parcel.com
     Code splitting
     Differential Bundling. - support older browser
     Diagnostics
     Error Handling
     HTTPs
     Tree Shaking- removes unused code
+    Different buld for dev and prod build =
     Different buld for dev and prod build =
 
     npx parcel build index.html ---> this wil thoe errro
@@ -65,6 +68,13 @@ run and it will throw error
         7 |     "test": "jest"
 
     💡 Try changing the file extension of "main" in package.json.
+
+
+ it
+
+
+
+
 
 
  it
@@ -105,6 +115,7 @@ DIFEEERENCE BETWEEN LIBRARY AND FRAMEWORK?
 
 
 
+
 WHAT IS CDN WHY DO WE USE IT?
 
     Ans. A CDN (Content Delivery Network) is a network of distributed servers that are strategically placed in different geographic locations around the world. The primary purpose of a CDN is to deliver content to end-users with high availability and high performance.
@@ -118,12 +129,14 @@ WHAT IS CDN WHY DO WE USE IT?
 
 
 
+
 WHY REACT IS KNOWN AS REACT?
 
     Ans. React is known as React because it is a JavaScript library for building user interfaces that "react" to changes in data. React was developed by Facebook and was first released in 2013.
     In traditional web development, when data changes, the developer must manually update the corresponding parts of the user interface. With React, however, changes in data are automatically reflected in the user interface, without the need for manual updates.
     React achieves this through its unique approach to rendering user interfaces, which is based on a virtual DOM (Document Object Model). When data changes, React updates the virtual DOM, and then efficiently updates only the parts of the actual DOM that have changed. This makes React fast and efficient, even when working with large and complex user interfaces.
     The name "React" also reflects the library's philosophy of breaking the user interface down into small, reusable components that can be easily composed together. This allows developers to build complex user interfaces out of simple building blocks, making it easier to develop and maintain large applications.
+
 
 
 
@@ -137,9 +150,11 @@ WHAT IS CROSS-ORIGIN IN THE SCRIPT TAG?
 
 
 
+
 WHAT IS THE DIFFEENCE BETWEEN REACT AND REACTDOM?
 
     Ans. React and ReactDOM are two different packages in the React library.
+    React is the core package of the React library and provides the functionality for creating and managing components, updating the state and props of components, and rendering components to the virtual
     React is the core package of the React library and provides the functionality for creating and managing components, updating the state and props of components, and rendering components to the virtual
     ReactDOM, on the other hand, is a package that provides the functionality for rendering React components to the actual DOM in the browser. It is responsible for managing the lifecycle of the React com    ponentandling events, and updating the actual DOM with changes made to the virtual DOM by React.
     In summary, React is the core package that provides the functionality for creating and managing components, while ReactDOM provides the functionality for rendering those components to the actual DOM i    n the brow
@@ -154,7 +169,10 @@ WHAT IS THE DIFFEENCE BETWEEN REACT AND REACTDOM?
 
 
 
+
 WHAT IS SYNC AND DIFFER?
+
+
 
 
 
@@ -167,6 +185,7 @@ wHAT IS NPM?
     NPM also provides a way for developers to manage dependencies between packages. When you install a package using NPM, it will automatically install any dependencies that the package requires. This makes it easy to manage complex projects with many dependencies.
     In addition to managing packages, NPM can also be used to run scripts, such as build scripts, test scripts, or deployment scripts. This makes it easy to automate common tasks in your development workflow.
     Overall, NPM is a powerful and essential tool for modern web development, allowing developers to easily manage dependencies and packages for their projects.
+
 
 
 
@@ -183,8 +202,10 @@ WHAT IS 'PARCEL/WEBPACK' ? WHY DO WE NEED IT?
 
 
 
+
 WHAT IS '.PARCEL-CACHE'?
     Ans. .parcel-cache: This is a cache folder that is created by Parcel bundler to store previously built assets and avoid rebuilding them again in subsequent builds. It helps to speed up the build process and improve performance.
+
 
 
 
@@ -194,9 +215,11 @@ WHAT IS NPX?
 
 
 
+
 WHAT IS DIFFERENCE BETWEEN DEPENDENCIES AND DEV DEPENDENCIES
 
     Ans. Dependencies are the packages that are required for your application to run properly in production. On the other hand, dev dependencies are packages that are only required during development, such as testing frameworks, linters, and build tools.
+
 
 
 
@@ -206,9 +229,11 @@ WHAT IS TREE SHAKING?
 
 
 
+
 WHTA IS HOT MODULE REPLACEMENT?
 
     Ans. Hot Module Replacement (HMR) is a feature that allows developers to update the application code in real-time without requiring a full browser refresh. This speeds up the development process by enabling quick iterations and reducing development time.
+
 
 
 
@@ -218,8 +243,10 @@ LIST DOWN YOUR 5 FAV 5 SUPERPOWERS OF PAREL AND DESCRIBE ANY 3 OF THEM ?
 
 
 
+
 WHAT IS GITIGNORE? WHAT SHOULD WE NEED AND NOT ADD INTO IT?
     Ans. Gitignore is a file that tells Git which files or directories to ignore when committing changes. It is used to exclude files or directories that are not required in the repository, such as build artifacts, dependencies, and temporary files.
+
 
 
 
@@ -229,9 +256,11 @@ WHAT IS THE DIFFERENCE BETWEEN PACKAGE.JSON AND PACKAGE-LOCK.JSON?
 
 
 
+
 WHY SHOULD I NOT MODIFY 'PACKAGE-LOCK.JSON'
 
     Ans. Package.json is a file that contains metadata about your project and a list of dependencies and dev dependencies required for your application. Package-lock.json is a file that keeps track of the exact versions of each dependency installed and their dependencies, ensuring that the same versions are installed across different environments. You should not modify package-lock.json manually, as it is automatically generated by npm.
+
 
 
 
@@ -241,9 +270,11 @@ WHAT IS 'NODE_MODULES'? IT IS A GOOD IDEA TO PUSH THAT ON GIT?
 
 
 
+
 WHAT IS THE DIST FOLDER?
 
     Ans. The dist folder is a folder that contains the final output of your build process, typically containing optimized and minified files ready for production use.
+
 
 
 
@@ -256,9 +287,11 @@ Vite, Webpack, and Parcel are all module bundlers used in modern web development
 
 
 
+
 READ ABOUT: ^-CARET AND ~ -TILDA
 
     Ans.  The ^ (caret) and ~ (tilde) symbols are used in the package.json file to specify version ranges for dependencies. The caret (^) indicates that the package can be updated to a newer minor or patch version, while the tilde (~) indicates
+
 
 
 WHAT ARE SCRIPT TYPES IN HTML?
@@ -271,6 +304,8 @@ WHAT ARE SCRIPT TYPES IN HTML?
     module: This is a newer script type used for JavaScript modules. It allows for better organization of code and can help improve performance.
     text/css: This is used to define CSS stylesheets that are included in the page.
     It is important to use the correct script type in HTML to ensure that the browser can properly interpret and execute the script.
+
+
 
 
 
@@ -310,6 +345,7 @@ Sent from Outlook for Android
 
   *   * so root is hwere u want react to render item to!!!! it cna be whole doc or some picec of dom
   * const root = ReactDOM.createRoot(document);
+  * const root = ReactDOM.createRoot(document);
   * root.render(parent);   * render will replae everything inside the root and put new stuff
 
 
@@ -318,6 +354,7 @@ npm start == npm run start ===> beind the scene it runs npx parcel index.html.
 
 #Babel
     - transpile es6 code for older browser.
+    - champ of compile,
     - champ of compile,
     - converts different code to different code.
     -Parcel is a manager of Babel
@@ -630,14 +667,17 @@ Config Driven UI :
 delhi has different curousel, bnagalurur has different,
 this data comes form backend
 when UI changes according to our data in
+when UI changes according to our data in
 UI is powered by DATA
 
 
 /*
 
 inline style in react
+inline style in react
 
 
+way 1:
 way 1:
 const css = {
     backgroundColor : '#f0f0f0',
@@ -651,6 +691,7 @@ way 2 : give js object to style={({css})}
 
 
  // can also use destructuring
+ // can also use destructuring
     const {resData} = props; // what props here ctually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
 
 
@@ -660,6 +701,8 @@ way 2 : give js object to style={({css})}
 Q    anything we do using react we can do that using html and js so why we need react?
 
 While it is possible to achieve similar functionality using vanilla HTML, CSS, and JavaScript,
+React simplifies the development process and offers additional benefits such as
+( Component-based architecture,Virtual DOM, Declarative syntax, React ecosystem, Performance optimizations, Strong community support )
 React simplifies the development process and offers additional benefits such as
 ( Component-based architecture,Virtual DOM, Declarative syntax, React ecosystem, Performance optimizations, Strong community support )
 that can save time and effort in building robust and maintainable web applications.
@@ -741,6 +784,7 @@ Default Exports :
 wildCard Export;
     - syntax import *as ref_name from './path'.
     - allows imports all exported references as object
+    - allows imports all exported references as object
     - accessed using ref_name.value
 
 congfig.js file:
@@ -814,13 +858,18 @@ Monolith architecture is a traditional software architecture where the entire ap
 self-contained unit. All the components of the application are tightly coupled and run in a single process or on a
 single server. On the other hand, Microservice architecture is a modern software architecture where the application
 is broken down into smaller, independent services that communicate with each other over a network. Each service is
+self-contained unit. All the components of the application are tightly coupled and run in a single process or on a
+single server. On the other hand, Microservice architecture is a modern software architecture where the application
+is broken down into smaller, independent services that communicate with each other over a network. Each service is
 responsible for a specific business capability and can be developed, deployed, and scaled independently.
 
 
 Why do we need a useEffect Hook?
 
 The useEffect Hook is used to perform side effects in functional components. Side effects include things like
+The useEffect Hook is used to perform side effects in functional components. Side effects include things like
 fetching data from an API, updating the DOM, or subscribing to events. We need the useEffect Hook because functional
+components don't have lifecycle methods like class components, and we need a way to perform side effects when the
 components don't have lifecycle methods like class components, and we need a way to perform side effects when the
 component mounts, updates, or unmounts.
 
@@ -829,10 +878,14 @@ What is Optional Chaining
 
 Optional Chaining is a new feature in JavaScript that allows you to safely access nested properties of an object
 without having to check if each property exists. It uses the ?. operator to access properties, and if any property
+Optional Chaining is a new feature in JavaScript that allows you to safely access nested properties of an object
+without having to check if each property exists. It uses the ?. operator to access properties, and if any property
 in the chain is null or undefined, the expression short-circuits and returns undefined.
 
 What is Shimmer UI?
 
+Shimmer UI is a design pattern used to indicate that content is loading or that a component is in a loading state.
+It is typically used in place of a blank or empty component to provide visual feedback to the user that something
 Shimmer UI is a design pattern used to indicate that content is loading or that a component is in a loading state.
 It is typically used in place of a blank or empty component to provide visual feedback to the user that something
 is happening.
@@ -842,13 +895,16 @@ What is the difference between JS expression and JS statement?
 
 A JavaScript expression is a piece of code that evaluates to a value. Examples of expressions include literals,
 variables, and function calls. A JavaScript statement, on the other hand, is a piece of code that performs an
+variables, and function calls. A JavaScript statement, on the other hand, is a piece of code that performs an
 action. Examples of statements include if statements, loops, and function declarations.
 
 
 What is Conditional Rendering, explain with a code example?
 
 Conditional Rendering is a technique used in React to conditionally render components based on some condition.
+Conditional Rendering is a technique used in React to conditionally render components based on some condition.
 Here's an example:
+In this example, the Greeting component conditionally renders a different message based on whether the user is
 In this example, the Greeting component conditionally renders a different message based on whether the user is
 logged in or not.
 
@@ -864,11 +920,15 @@ What is CORS?
 
 CORS (Cross-Origin Resource Sharing) is a security feature implemented by web browsers that restricts web pages
 from making requests to a different domain than the one that served the web page.
+CORS (Cross-Origin Resource Sharing) is a security feature implemented by web browsers that restricts web pages
+from making requests to a different domain than the one that served the web page.
 This is done to prevent malicious websites from stealing data or performing actions on behalf of the user.
 
 
 What is async and await?
 
+async and await are keywords in JavaScript that are used to work with asynchronous code.
+The async keyword is used to define an asynchronous function, and the await keyword is used to wait for a promise
 async and await are keywords in JavaScript that are used to work with asynchronous code.
 The async keyword is used to define an asynchronous function, and the await keyword is used to wait for a promise
 to resolve before continuing execution. Here's an example:
@@ -882,6 +942,9 @@ In this example, the fetchData function is defined as an asynchronous function, 
 
 What is the use of const json = await data.json(); in getRestaurants?
 
+const json = await data.json(); is used to parse the response from an API call to a JSON object.
+In the getRestaurants function, data is the response object returned by the fetch method, and json is the parsed
+JSON object that is returned by the function. This allows us to work with the data returned by the API in a more
 const json = await data.json(); is used to parse the response from an API call to a JSON object.
 In the getRestaurants function, data is the response object returned by the fetch method, and json is the parsed
 JSON object that is returned by the function. This allows us to work with the data returned by the API in a more
@@ -932,11 +995,16 @@ What would happen if we do console.log(useState ())?
 If you call useState() without passing an initial value, it will return an array with two elements:
 the current state value and a function to update the state value. If you log this array to the console,
 you will see the initial state value and the update function. However, this is not a recommended practice
+If you call useState() without passing an initial value, it will return an array with two elements:
+the current state value and a function to update the state value. If you log this array to the console,
+you will see the initial state value and the update function. However, this is not a recommended practice
 because it can lead to confusion and errors in your code.
 
 
 How will useEffect behave if we don't add a dependency array?
 
+If you don't add a dependency array to the useEffect Hook, it will run on every render of the component.
+This can cause performance issues and unnecessary re-renders. It is recommended to add a dependency array to the
 If you don't add a dependency array to the useEffect Hook, it will run on every render of the component.
 This can cause performance issues and unnecessary re-renders. It is recommended to add a dependency array to the
 useEffect Hook to specify which variables the effect depends on, so that it only runs when those variables change.
@@ -946,6 +1014,7 @@ What is SPA?
 
 SPA (Single Page Application) is a web application that loads a single HTML page and dynamically updates the content
 as the user interacts with the app. Instead of loading new pages from the server, the app uses JavaScript to
+as the user interacts with the app. Instead of loading new pages from the server, the app uses JavaScript to
 update the DOM and fetch data from APIs. This provides a faster and more seamless user experience.
 
 
@@ -954,7 +1023,10 @@ What is the difference between Client Side Routing and Server Side Routing?
 Client Side Routing is a technique used in SPA where the routing is handled entirely on the client side using J
 avaScript. When the user clicks on a link, the app updates the URL and renders the appropriate component without
 making a request to the server. This provides a faster and more seamless user experience, but requires more initial
+avaScript. When the user clicks on a link, the app updates the URL and renders the appropriate component without
+making a request to the server. This provides a faster and more seamless user experience, but requires more initial
 setup and can be less SEO-friendly.
+Server Side Routing is a traditional technique where the routing is handled on the server side.
 Server Side Routing is a traditional technique where the routing is handled on the server side.
 When the user clicks on a link, the browser makes a request to the server, which returns the appropriate HTML page.
 This provides better SEO and is easier to set up, but can be slower and less responsive.
@@ -1008,6 +1080,8 @@ function AdultList() {
 
 Reduce: The reduce function is used to reduce an array to a single value by applying a function
 that accumulates results from each element in the array. In React, you can use reduce for more
+Reduce: The reduce function is used to reduce an array to a single value by applying a function
+that accumulates results from each element in the array. In React, you can use reduce for more
 complex data transformations. For example, you can use reduce to calculate the sum of an array of numbers:
 
 
@@ -1019,6 +1093,8 @@ const sum = numbers.reduce((accumulator, currentNumber) => accumulator + current
 function SumComponent() {
   return <p>Sum: {sum}</p>;
 }
+In all these examples, you can use the results obtained from map, filter, or reduce
+to render components in your React application. These array manipulation functions are very
 In all these examples, you can use the results obtained from map, filter, or reduce
 to render components in your React application. These array manipulation functions are very
 useful when working with dynamic data and lists of items in your UI.
@@ -1062,3 +1138,31 @@ it is used o make api calls
     * -> second componentDidMount
     *
 /}
+    * -> parent componentDidMount
+/}
+
+----MOUNTING life cycle -----
+    * Constructor (dummy)
+    * Render (dummy)
+        <HTML Dummy >
+    * Component Did MOunt
+        <API Call>
+        <this. setState> → State variable is updated
+------UPDATE life cycle ------
+    *render (APi data)
+        <HTML (new API data>)
+    *componentDid Update
+
+* Reac dom lifecyle has 2 phases and 3 stages Mounting --- Updating --- Unmounting
+1. Render phase:
+ - In this phase react will call the render method of the class based component and batch all the updates
+ - In this phase react will not update the dom
+ - in case thereare many childrens then React will batch all the changes made in each childrens.
+2. Commit phase:
+ - In this phase react will update the dom by applying all the changes made in the render phase
+ 
+Stages Mounting --- Updating --- Unmounting.
+See :
+1 - mounting part happens quickly --> React mounts dummy data and the calls ---> componentDidMount,
+2 - after componentDidMount when we use state Variable to update the value in DOM. Updating life cycle state occurs and
+    it will again re -render stuffs and triggers `componentDidUpdate()`

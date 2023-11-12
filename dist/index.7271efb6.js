@@ -12614,12 +12614,12 @@ const About = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _userDefault.default), {}, void 0, false, {
             fileName: "src/components/About.js",
-            lineNumber: 6,
+            lineNumber: 7,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/About.js",
-        lineNumber: 5,
+        lineNumber: 6,
         columnNumber: 9
     }, undefined);
 };
@@ -12643,10 +12643,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
+var _shimmer = require("./Shimmer");
+var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _s = $RefreshSig$();
-const User = (props)=>{
+const User = ()=>{
     _s();
-    const [info, setinfo] = (0, _react.useState)(""); // for functinal comoonent we use useState hook like this.
+    const [info, setinfo] = (0, _react.useState)([]); // for functinal comoonent we use useState hook like this.
     // to use multiple state variables we can use multiple useState hooks.
     (0, _react.useEffect)(async ()=>{
         await userInfo();
@@ -12657,46 +12659,51 @@ const User = (props)=>{
         debugger;
         setinfo(data);
     }
-    const { name , location , avatar_url  } = undefined.info;
+    if (info.length) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
+        fileName: "src/components/User.js",
+        lineNumber: 21,
+        columnNumber: 13
+    }, undefined);
+    const { name , location , avatar_url  } = info;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         class: "user-card",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: avatar_url
+                src: avatar_url || "Logo.png"
             }, void 0, false, {
                 fileName: "src/components/User.js",
-                lineNumber: 20,
+                lineNumber: 27,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: [
                     "Name: ",
-                    name,
+                    name || "Sanjay",
                     " "
                 ]
             }, void 0, true, {
                 fileName: "src/components/User.js",
-                lineNumber: 21,
+                lineNumber: 28,
                 columnNumber: 17
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: [
                     "Location: ",
-                    location
+                    location || "Gandhinagar"
                 ]
             }, void 0, true, {
                 fileName: "src/components/User.js",
-                lineNumber: 22,
+                lineNumber: 29,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/User.js",
-        lineNumber: 19,
+        lineNumber: 26,
         columnNumber: 13
     }, undefined);
 };
-_s(User, "cbnOQ/xe1O07CjT8ha1fONKolFg=");
+_s(User, "d5ghLbRy7AgVOyAFBc1KgBQ00mE=");
 _c = User;
 exports.default = User;
 var _c;
@@ -12707,7 +12714,7 @@ $RefreshReg$(_c, "User");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq"}],"cgAOG":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./Shimmer":"g6ZGj"}],"cgAOG":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ee46 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

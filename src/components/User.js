@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import Shimmer from './Shimmer';
 
-const User = (props) => {
-    const [info , setinfo] = useState(''); // for functinal comoonent we use useState hook like this.
+const User = () => {
+    const [info , setinfo] = useState([]); // for functinal comoonent we use useState hook like this.
     // to use multiple state variables we can use multiple useState hooks.
 
     useEffect(async () => {
@@ -14,14 +15,17 @@ const User = (props) => {
         debugger
         setinfo(data);
     }
-    const { name , location , avatar_url } = this.info;
-    return(
-            <div class="user-card">
-                <img src={avatar_url}/>
-                <h3>Name: {name} </h3>
-                <h3>Location: {location}</h3>
-            </div>
-        );
+    const { name , location , avatar_url } = info;
+    
+    return (
+        info.length ? 
+          <Shimmer /> :
+          <div className="user-card">
+            <img src={avatar_url || "Logo.png"}/>
+            <h3>Name: {name || "Sanjay"} </h3>
+            <h3>Location: {location || "Gandhinagar"}</h3>
+          </div>
+      );
     }
 
 export default User;

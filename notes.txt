@@ -1030,3 +1030,38 @@ Behind the scene <Link> is nothing but a wrapper to anchor tag.
 
 
 Why we always have to use super(props) for class component?
+why cant make useEffect async? 
+: The useEffect hook in React is designed to handle side effects in your components.
+It expects a function that returns either nothing, or a cleanup function.
+When you declare a function as async, it implicitly returns a Promise,
+even if you don't explicitly return anything.
+This is because async functions are designed to handle asynchronous operations, and they use Promises to do this.
+Therefore, if you pass an async function to useEffect, you're actually returning a Promise,
+which violates the contract of useEffect. However, you can still perform asynchronous operations inside useEffect 
+by defining an async function inside the effect and then calling it:
+
+
+
+why we use super(props) ?
+In React, super(props) is used in the constructor of a subclass (a class that extends another class,
+typically a React component) to call the constructor of its parent class.
+When you create a subclass in JavaScript (or in React),
+if you define a constructor function, the first thing you should do inside the constructor is to call super().
+This is necessary because this in an ES6 class constructor is uninitialized until super is called.
+In the context of React, super(props) is used to make this.props available in the constructor.
+If you don't call super(props), this.props will be undefined in the constructor, which can lead to bugs.
+ example:
+ 
+ class MyComponent extends React.Component {
+  constructor(props) {
+    super(props); // Now this.props is available
+    console.log(this.props); // Prints the props passed to the component
+  }
+
+  render() {
+    // ...
+  }
+}
+
+here super(props) is called in the constructor of MyComponent to make this.props available.
+If you removed super(props), this.props would be undefined in the constructor.

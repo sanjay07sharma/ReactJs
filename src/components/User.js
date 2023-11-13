@@ -5,9 +5,22 @@ const User = () => {
     const [info , setinfo] = useState([]); // for functinal comoonent we use useState hook like this.
     // to use multiple state variables we can use multiple useState hooks.
 
-    useEffect(async () => {
-        await userInfo();
-    }, [])
+    useEffect(() => {
+        // cant make useEffect async directly because useEffect returns a cleanup function which is not async.
+        const fetchUserInfo = async () => {
+            await userInfo();
+        };
+        fetchUserInfo();
+    
+        const timer = setInterval(() => {
+            console.log('This will run after 1 second!');
+        }, 1000);
+    
+        return () => {
+            console.log('cleanup, this return is only called when component is unmounted or destroyed');
+            clearInterval(timer);
+        };
+    }, []);
 
     async function userInfo() {
         const response = await fetch("https://api.github.com/users/sanjay07sharma");

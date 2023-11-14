@@ -1065,3 +1065,15 @@ If you don't call super(props), this.props will be undefined in the constructor,
 
 here super(props) is called in the constructor of MyComponent to make this.props available.
 If you removed super(props), this.props would be undefined in the constructor.
+
+
+Single Responsibility Principle:
+
+
+
+Hooks are utility function provied by React
+
+
+what we did:
+
+Made a cutom hook:

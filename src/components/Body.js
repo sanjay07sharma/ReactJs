@@ -2,7 +2,7 @@ import { RestrauntCard } from "./RestrauntCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
+import useBodyData from "../utils/useBodyData";
 
 export const Body = () => {
 
@@ -10,20 +10,10 @@ export const Body = () => {
     const [restrauntList, setRestrauntList] = useState([]); // resList or data from an API
     const [searchText, setSearchText] = useState('');
     const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
+    const [List, FilteredList] = useBodyData();
 
-    // whenver there is change in state variable, react triggers reconcilliation cycle, the component will re-render.
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    fetchData = async () => {
-        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.0311463&lng=72.587026&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
-        const json = await data.json();
-        // setRestrauntList(json.data.cards[2].data.data.cards)// Bad way
-        setRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);// Good way is optional chaining
-        setFilteredRestrauntList(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
-    
+    setRestrauntList(List);
+    setFilteredRestrauntList(FilteredList);
     // Normal js varible
     // conditional rendering
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : (

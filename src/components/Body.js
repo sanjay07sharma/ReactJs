@@ -7,23 +7,17 @@ import useBodyData from "../utils/useBodyData";
 export const Body = () => {
 
     //state variable
-    const [restrauntList, setRestrauntList] = useState([]); // resList or data from an API
     const [searchText, setSearchText] = useState('');
-    const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
-    const [List, FilteredList] = useBodyData();
+    const [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList] = useBodyData();
 
-    setRestrauntList(List);
-    setFilteredRestrauntList(FilteredList);
-    // Normal js varible
-    // conditional rendering
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : (
         <div className="body">
             <div className="filter">
                 <div className="search">
                     <input type="text" placeholder="Search for restraunts" value={searchText} onChange={ (e) => setSearchText(e.target.value) }/>
                     <button className="search-btn" onClick={ () => {
-                        const searchResult = restrauntList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                        setFilteredRestrauntList(searchResult.length ? searchResult : setFilteredRestrauntList(''));
+                        const filteredRestrauntList = restrauntList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                        setFilteredRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : setFilteredRestrauntList(''));
                     }}>Search</button>
                 </div>
                 <button className="filter-btn" onClick={() =>{

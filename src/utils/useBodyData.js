@@ -17,7 +17,7 @@ const useBodyData = () => {
     }
     
     
-    return [restrauntList, filteredRestrauntList];
+    return [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList];
 }
 
 export default useBodyData;

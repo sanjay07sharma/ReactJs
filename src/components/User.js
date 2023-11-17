@@ -25,7 +25,6 @@ const User = () => {
     async function userInfo() {
         const response = await fetch("https://api.github.com/users/sanjay07sharma");
         const data = await response.json();
-        debugger
         setinfo(data);
     }
     const { name , location , avatar_url } = info;

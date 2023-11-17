@@ -3,14 +3,16 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useBodyData from "../utils/useBodyData";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export const Body = () => {
 
     //state variable
     const [searchText, setSearchText] = useState('');
     const [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList] = useBodyData();
+    const online = useOnlineStatus();
 
-    return restrauntList?.length === 0 ? ( <Shimmer/> ) : (
+    return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
         <div className="body">
             <div className="filter">
                 <div className="search">

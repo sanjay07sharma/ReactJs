@@ -56,3 +56,11 @@ Normal Js utility function.
 Two tpyes of routing:
 1) client side
 2) server side
+
+
+# Bundling (All serves the same purpose to lessen the load on single JS file)
+
+- code splitting
+- chunking
+- dynamic bundling
+- lazy loading

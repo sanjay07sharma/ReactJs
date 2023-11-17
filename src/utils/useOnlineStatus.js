@@ -9,13 +9,13 @@ const useOnlineStatus = () => {
             setOnlineStatus(false);
         });
         
-        window.addEventListener('onlinw', () => {
+        window.addEventListener('online', () => {
             setOnlineStatus(true);
         });
     })
     
     // reutrn boolean
-    return onlineSataus
+    return onlineSataus;
 }
 
 export default useOnlineStatus;

@@ -1,4 +1,4 @@
-package.json is configurationfake entry to docfake entry to docfake entry to docfake entry to docfake entry to doc
+package.json is configuration
 
 
 node module

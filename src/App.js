@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
 import { About } from "./components/About"; // Named import
@@ -16,7 +16,19 @@ import { createRoot } from 'react-dom/client';
  * Outlet is a component that renders the content of the current route.
 */
 
+/**
+ * Concept of bundling: this helps in reducing the size of the bundle for better performance.
+ * Chunking
+ * Code splitting
+ * Dynamic loading
+ * Lazy loading
+ * on Demand loading
+*/
+
+const Grocery = lazy(() => import('./components/Grocery')); // lazy loading
+
 import { Outlet } from "react-router-dom";
+import Grocery from "./components/Grocery";
 const AppLayout = () => {
     return (
         <div>
@@ -54,6 +66,10 @@ const appRouter = createBrowserRouter(
                     {
                         path: "/contact",
                         element: <Contact/>
+                    },
+                    {
+                        path: "/grocery",
+                        element: <Grocery/>
                     },
                     {
                         path: "/cart",

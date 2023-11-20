@@ -2,6 +2,9 @@ Fact :
 
 Developed by Facebook: React.js was developed by Facebook, and it was first deployed on Facebook's newsfeed in 2011. It was later open-sourced in 2013.
 
+Declarative Syntax: React uses a declarative syntax, making it easier to understand and debug. Developers can describe the structure of their user interface and React takes care of updating and rendering the components when the state changes.
+
+
 
 package.json is configuration
 

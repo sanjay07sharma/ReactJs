@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
 import { About } from "./components/About"; // Named import
@@ -69,7 +69,7 @@ const appRouter = createBrowserRouter(
                     },
                     {
                         path: "/grocery",
-                        element: <Grocery/>
+                        element: <Suspense><Grocery/></Suspense>
                     },
                     {
                         path: "/cart",

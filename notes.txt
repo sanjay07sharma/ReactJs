@@ -1,3 +1,8 @@
+Fact :
+
+Developed by Facebook: React.js was developed by Facebook, and it was first deployed on Facebook's newsfeed in 2011. It was later open-sourced in 2013.
+
+
 package.json is configuration
 
 

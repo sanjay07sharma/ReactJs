@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/sanjay07sharma/ReactJs#readme",
   "devDependencies": {
-    "process": "^0.11.10"
+    "postcss": "^8.4.31",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.5"
   },
   "dependencies": {
     "parcel": "^2.8.3",

@@ -1085,3 +1085,89 @@ Hooks are utility function provied by React
 what we did:
 
 Made a cutom hook:
+
+===================================================================================================================================
+
+Appearance:
+
+Various ways to add style to your app:
+    - css
+    -sass || scss 
+    - material UI
+    - bootstrap
+    - ant design
+    - chakra UI
+    - Tailwind.
+    
+for tailwind package
+in order to use it 
+    - firstly seek the package you are working with.
+    
+Install Tailwind CSS
+    Install tailwindcss and its peer dependencies via npm, and then run the init command to generate tailwind.config.js.
+
+Terminal
+
+    npm install -D tailwindcss postcss
+    npx tailwindcss init
+
+Configure PostCSS
+    Create a .postcssrc file in your project root, and enable the tailwindcss plugin.
+
+    .postcssrc
+
+    {
+        "plugins": {
+            "tailwindcss": {}
+        }
+    }
+           
+Configure your template paths
+    Add the paths to all of your template files in your tailwind.config.js file.
+
+    tailwind.config.js
+
+    /** @type {import('tailwindcss').Config} */
+    module.exports = {
+        content: [
+            "./src/**/*.{html,js,ts,jsx,tsx}",
+        ],
+        theme: {
+            extend: {},
+        },
+        plugins: [],
+    }
+    
+Add the Tailwind directives to your CSS
+    Create a ./src/index.css file and add the @tailwind directives for each of Tailwind’s layers.
+
+index.css
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    Start your build process
+    Run your build process with npx parcel src/index.html.
+
+Terminal
+
+npx parcel src/index.html
+
+Start using Tailwind in your project
+    Add your CSS file to the <head> and start using Tailwind’s utility classes to style your content.
+
+    index.html
+
+    <!doctype html>
+    <html>
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./index.css" rel="stylesheet">
+        </head>
+        <body>
+            <h1 class="text-3xl font-bold underline">
+                Hello world!
+            </h1>
+        </body>
+    </html>

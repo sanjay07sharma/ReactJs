@@ -14,18 +14,18 @@ export const Header = () => {
     }, [btnName]);
 
     return (
-        <div className="header">
-        <div className="logo">
+        <div className="flex justify-between bg-orange-50 shadow-lg">
+        <div className="logo w-56">
             <img className="res-img" src= {LOGO_URL}/>
         </div>
-        <div className="nav-items">
-            <ul>
-                <li>Online Status : { online ? "🟢" : "🔴" }</li>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
-                <li><Link to="/grocery">Grocery</Link></li>
-                <li> <Link to="/cart">Cart</Link></li>
+        <div className="flex items-center">
+            <ul class="flex justify-between p-4 m-4">
+                <li className="px-4">Online Status : { online ? "🟢" : "🔴" }</li>
+                <li className="px-4"><Link to="/">Home</Link></li>
+                <li className="px-4"><Link to="/about">About Us</Link></li>
+                <li className="px-4"><Link to="/contact">Contact Us</Link></li>
+                <li className="px-4"><Link to="/grocery">Grocery</Link></li>
+                <li className="px-4"> <Link to="/cart">Cart</Link></li>
                 <button 
                 className="login-btn"
                 onClick={() => {

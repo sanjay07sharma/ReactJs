@@ -17,7 +17,7 @@ export const RestrauntCard = (props) => {
       // Todo: add item to plate and update on card
 
   return (
-    <div className="res-card">
+    <div className="res-card m-4 p-4 w-[250px] bg-gray-100">
       <img className="res-logo" src={CDN_URL + cloudinaryImageId} />
       <h3>{name}</h3>
       <h4 class="cuisines">{cuisines.join(", ")}</h4>

@@ -1171,3 +1171,50 @@ Start using Tailwind in your project
             </h1>
         </body>
     </html>
+
+
+
+why Tailwind? 
+
+Its light-weight: why? -> supposes you never used any class tailwinf will never import it.
+
+Build whatever you want, seriously.
+
+Because Tailwind is so low-level,
+it never encourages you to design the same site twice.
+Even with the same color palette and sizing scale,
+it's easy to build the same component with a completely different look in the next project.
+
+
+It’s tiny — never ship unused CSS again.
+
+Tailwind automatically removes all unused CSS when building for production,
+which means your final CSS bundle is the smallest it could possibly be.
+In fact, most Tailwind projects ship less than 10kB of CSS to the client.
+
+
+Responsive everything.
+
+Wrestling with a bunch of complex media queries in your CSS sucks,
+so Tailwind lets you build responsive designs right in your HTML instead.
+
+Throw a screen size in front of literally any utility class and watch it magically 
+apply at a specific breakpoint.
+example
+sm: some style, lg: some style ---> depending on the size of your device it changes.
+
+
+Hover and focus states? We got ’em.
+
+Want to style something on hover? Stick hover: at the beginning of the class you want to add.
+Works for focus, active, disabled, focus-within, focus-visible,
+and even fancy states we invented ourselves like group-hover.
+
+
+Worried about duplication? Don’t be.
+
+If you're repeating the same utilities over and over and over again,
+all you have to do is extract them into a component or template partial 
+and boom — you've got a single source of truth so you can make changes in one place.
+
+

@@ -6,12 +6,17 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 export const Header = () => {
     const [btnName, setBtnName] = useState("Login");
     const online = useOnlineStatus();
+    const [mode, setThemeMode] = useState("Day"); // [stateVariable, setStateVariable
 
     // if no dependency array is passed, useEffect will be called on every re-render
     // if empty dependency array is passed, useEffect will be called only once
     // if dependency is [btnName], useEffect will be called only when btnName changes
     useEffect(() => {
     }, [btnName]);
+    
+    toggleDarkMode = (bool) => {
+        document.documentElement.classList.toggle('dark', bool);
+    }
 
     return (
         <div className="flex justify-between bg-orange-50 shadow-lg">
@@ -27,15 +32,23 @@ export const Header = () => {
                 <li className="px-4"><Link to="/grocery">Grocery</Link></li>
                 <li className="px-4"> <Link to="/cart">Cart</Link></li>
                 <li>
-                <button 
-                className="login-btn"
-                onClick={() => {
-                    // btnName="Logout"; // cant directly change state variable
-                    btnName === 'Login' ?
-                        setBtnName("Logout") : setBtnName("Login");
-                }}>
-                {btnName}
-                </button>    
+                    <button 
+                        className="login-btn px-4"
+                        onClick={() => {
+                            // btnName="Logout"; // cant directly change state variable
+                            btnName === 'Login' ?
+                            setBtnName("Logout") : setBtnName("Login");
+                        }}>
+                        {btnName}
+                    </button>    
+                </li>
+                <li>
+                    <button className="dark-mode-btn px-4" 
+                        onClick={() => {
+                                mode === "Day" ? setThemeMode("Night") && toggleDarkMode(true) : setThemeMode("Day") && toggleDarkMode(false);
+                            }}>
+                        {mode}
+                    </button>
                 </li>
             </ul>
         </div>

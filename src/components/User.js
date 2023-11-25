@@ -11,15 +11,6 @@ const User = () => {
             await userInfo();
         };
         fetchUserInfo();
-    
-        const timer = setInterval(() => {
-            console.log('This will run after 1 second!');
-        }, 1000);
-    
-        return () => {
-            console.log('cleanup, this return is only called when component is unmounted or destroyed');
-            clearInterval(timer);
-        };
     }, []);
 
     async function userInfo() {

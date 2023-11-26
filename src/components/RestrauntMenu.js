@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import useRestrauntMenu from '../utils/useRestrauntMenu';
+import { CDN_URL } from '../utils/constants';
 
 
 const RestaurantMenu = () => {
@@ -29,14 +30,16 @@ const RestaurantMenu = () => {
           return (
             <div class="itemCardContainer">
               <div class='itemCardName'>
-                <h1>{item.card.card.title || ""}</h1>
+                <h1 className='font-bold'>{item.card.card.title || ""}</h1>
               </div>
-              <div key={index}>
+              <div key={index} className='flex flex-wrap'>
                 {item.card.card.itemCards.map((item, index) => {
                   return (
-                    <div class="itemCards" key={index}>
-                      <h3>{item.card.info.name}</h3>
+                    <div class="itemCards m-4 p-4  w-[250px] l-[450px] rounded-lg bg-gray-100 hover:w-[300px]" key={index}>
+                      <img className="res-logo rounded-lg" src={CDN_URL + item.card.info.imageId} />
+                      <h3 className='font-bold'>{item.card.info.name}</h3>
                       <h4>{item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100}</h4>
+                      <button className='add_to_cart m-4 px-4 py-2 rounded-lg bg-green-300'>Add item to plate</button>
                     </div>
                   )
                 })}

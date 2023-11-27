@@ -39,7 +39,18 @@ const RestaurantMenu = () => {
                       <img className="res-logo rounded-lg" src={CDN_URL + item.card.info.imageId} />
                       <h3 className='font-bold'>{item.card.info.name}</h3>
                       <h4>{item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100}</h4>
-                      <button className='add_to_cart m-4 px-4 py-2 rounded-lg bg-green-300'>Add item to plate</button>
+                      <button className='add_to_cart m-4 px-4 py-2 rounded-lg bg-green-300' onClick={
+                        (ev) => {
+                          console.log("add item to plate and update on card");
+                          console.log(item.card.info.name);
+                          console.log(item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100);
+                          const cart = documet.getElementsByClassName('checkout-card');
+                          /*
+                            Idea is to add count to the cart name denoting items has been added to cart.
+                            need to update the header component to show the count of items in cart.
+                          */
+                        }
+                      }>Add item to plate</button>
                     </div>
                   )
                 })}

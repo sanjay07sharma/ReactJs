@@ -7,6 +7,7 @@ import { CDN_URL } from '../utils/constants';
 
 const RestaurantMenu = () => {
   
+  const [cartCount, setCartCount] = useState(0);
   const { resId } = useParams();
   const resInfo = useRestrauntMenu(resId);
   
@@ -16,6 +17,7 @@ const RestaurantMenu = () => {
     
   const {name, areaName, avgRating, locality, costForTwo, cuisines } =  resInfo?.cards[0]?.card?.card?.info;
   const itemCards = resInfo?.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
+  
   
   return (
     <div className='menu'>
@@ -44,7 +46,10 @@ const RestaurantMenu = () => {
                           console.log("add item to plate and update on card");
                           console.log(item.card.info.name);
                           console.log(item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100);
-                          const cart = documet.getElementsByClassName('checkout-card');
+                          const cart = document.getElementsByClassName('checkout-card');
+                          debugger
+                          setCartCount(cartCount + 1);
+                          cart[0].lastChild.textContent = cartCount + 1;
                           /*
                             Idea is to add count to the cart name denoting items has been added to cart.
                             need to update the header component to show the count of items in cart.

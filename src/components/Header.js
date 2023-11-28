@@ -25,7 +25,7 @@ export const Header = () => {
                 <li className="px-4"><Link to="/about">About Us</Link></li>
                 <li className="px-4"><Link to="/contact">Contact Us</Link></li>
                 <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-                <li className="checkout-card px-4"> <Link to="/cart">Cart</Link></li>
+                <li className="checkout-card px-4"> <Link to="/cart">Cart</Link> 0 </li>
                 <li>
                 <button 
                 className="login-btn"

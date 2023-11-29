@@ -11,7 +11,6 @@ const useBodyData = () => {
     
     fetchData = async () => {
         const data = await fetch(RESTRAUNT_LIST_API);
-        debugger
         const json = await data.json();
         setRestrauntList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestrauntList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);

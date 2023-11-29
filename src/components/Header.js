@@ -19,7 +19,7 @@ export const Header = () => {
             <img className="res-img" src= {LOGO_URL}/>
         </div>
         <div className="flex items-center">
-            <ul class="flex justify-between p-4 m-4">
+            <ul className="flex justify-between p-4 m-4">
                 <li className="px-4">Online Status : { online ? "🟢" : "🔴" }</li>
                 <li className="px-4"><Link to="/">Home</Link></li>
                 <li className="px-4"><Link to="/about">About Us</Link></li>

@@ -47,7 +47,6 @@ const RestaurantMenu = () => {
                           console.log(item.card.info.name);
                           console.log(item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100);
                           const cart = document.getElementsByClassName('checkout-card');
-                          debugger
                           setCartCount(cartCount + 1);
                           cart[0].lastChild.textContent = cartCount + 1;
                           /*

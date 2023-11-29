@@ -15,7 +15,6 @@ export const RestrauntCard = (props) => {
 
   const [order, updateOrder] = useState([]); // Try to store value of selected item and use it for card.
       // Todo: add item to plate and update on card
-  debugger
   return (
     <div className="res-card m-4 p-4 w-[250px] l-[450px] rounded-lg bg-gray-100 hover:w-[300px]">
       <img className="res-logo rounded-lg" src={CDN_URL + cloudinaryImageId} />
@@ -27,3 +26,17 @@ export const RestrauntCard = (props) => {
     </div>
   );
 };
+
+// Higher Order Components
+
+// input - RestaurantCard = RestaurantCardPromoted
+export const withPromtedLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+        <div>
+            <label className="absolute m-2 p-2 rounded-lg bg-black text-white">Promoted</label>
+            <RestaurantCard {...props}/>
+        </div>
+        );
+    };
+}

@@ -1,4 +1,4 @@
-import { RestrauntCard } from "./RestrauntCard";
+import { RestrauntCard, withPromtedLabel } from "./RestrauntCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,6 +11,7 @@ export const Body = () => {
     const [searchText, setSearchText] = useState('');
     const [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList] = useBodyData();
     const online = useOnlineStatus();
+    const promotedRestrauntList = withPromtedLabel(filteredRestrauntList);
 
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
         <div className="body">
@@ -30,8 +31,10 @@ export const Body = () => {
             <div className="res-container flex flex-wrap">
             {
                 filteredRestrauntList?.map((restro) => {
-                    // Keey should always be at the parent JSX element
-                    return <Link key={restro.info.id} to={"/resInfo/" + restro.info.id} > <RestrauntCard resData={restro}/></Link>;
+                // Keey should always be at the parent JSX element
+                return <Link key={restro.info.id} to={"/resInfo/" + restro.info.id}> {
+                    restro.info.isPromoted ? <promotedRestrauntList resData={restro}/> :  <RestrauntCard resData={restro}/>   
+                }</Link>;
                 })
             }
             </div>

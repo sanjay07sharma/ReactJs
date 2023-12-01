@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import useRestrauntMenu from '../utils/useRestrauntMenu';
-import { CDN_URL } from '../utils/constants';
+import RestrauntCategory from './RestrauntCategory';
 
 
 const RestaurantMenu = () => {
@@ -20,7 +20,7 @@ const RestaurantMenu = () => {
   
   
   return (
-    <div className='menu'>
+    <div className='menu text-center font-bold'>
       <h1>{name || 'No restaurant found'}</h1>
       <h3>{("Address: "+areaName+"-"+locality) || 'No restaurant found'}</h3>
       <h3>{("Average Rating: "+avgRating) || 'No restaurant found'}</h3>
@@ -36,27 +36,7 @@ const RestaurantMenu = () => {
               </div>
               <div key={index} className='flex flex-wrap'>
                 {item.card.card.itemCards.map((item, index) => {
-                  return (
-                    <div class="itemCards m-4 p-4  w-[250px] l-[450px] rounded-lg bg-gray-100 hover:w-[300px]" key={index}>
-                      <img className="res-logo rounded-lg" src={CDN_URL + item.card.info.imageId} />
-                      <h3 className='font-bold'>{item.card.info.name}</h3>
-                      <h4>{item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100}</h4>
-                      <button className='add_to_cart m-4 px-4 py-2 rounded-lg bg-green-300' onClick={
-                        (ev) => {
-                          console.log("add item to plate and update on card");
-                          console.log(item.card.info.name);
-                          console.log(item.card.info.defaultPrice ? "Rs. "+item.card.info.defaultPrice/100 : "Rs. "+item.card.info.price/100);
-                          const cart = document.getElementsByClassName('checkout-card');
-                          setCartCount(cartCount + 1);
-                          cart[0].lastChild.textContent = cartCount + 1;
-                          /*
-                            Idea is to add count to the cart name denoting items has been added to cart.
-                            need to update the header component to show the count of items in cart.
-                          */
-                        }
-                      }>Add item to plate</button>
-                    </div>
-                  )
+                  <RestrauntCategory data={item.card.info} key={index}/>
                 })}
               </div>
             </div>

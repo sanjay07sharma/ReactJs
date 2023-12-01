@@ -12,8 +12,8 @@ const useBodyData = () => {
     fetchData = async () => {
         const data = await fetch(RESTRAUNT_LIST_API);
         const json = await data.json();
-        setRestrauntList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestrauntList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setRestrauntList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestrauntList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
     
     

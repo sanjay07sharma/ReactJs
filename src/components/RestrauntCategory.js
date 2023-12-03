@@ -6,6 +6,7 @@ const RestrauntCategory = (props) => {
   //
 
 console.log(props);
+debugger
   return (
       <div class="itemCards m-4 p-4  w-[250px] l-[450px] rounded-lg bg-gray-100 hover:w-[300px]">
         {/* <img className="res-logo rounded-lg" src={CDN_URL + props.card.info.imageId} />

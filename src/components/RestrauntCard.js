@@ -19,7 +19,7 @@ export const RestrauntCard = (props) => {
     <div className="res-card m-4 p-4 w-[250px] l-[450px] rounded-lg bg-gray-100 hover:w-[300px]">
       <img className="res-logo rounded-lg" src={CDN_URL + cloudinaryImageId} />
       <h3 className="font-bold py-4 text-lg">{name}</h3>
-      <h4 class="cuisines">{cuisines.join(", ")}</h4>
+      <h4 className="cuisines">{cuisines.join(", ")}</h4>
       <h4>{avgRating}</h4>
       <h4>{costForTwo}</h4>
       <button className="add_to_cart" onClick={ () => console.log("add item to plate and update on card")}>Add to Plate</button>

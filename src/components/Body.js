@@ -12,6 +12,10 @@ export const Body = () => {
     const [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList] = useBodyData();
     const online = useOnlineStatus();
     const promotedRestrauntList = withPromtedLabel(filteredRestrauntList);
+    
+    useEffect(() => {
+        console.log("Body component mounted");
+    }, [])
 
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
         <div className="body">

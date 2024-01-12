@@ -5,9 +5,10 @@ const useBodyData = () => {
     const [restrauntList, setRestrauntList] = useState([]); // resList or data from an API
     const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
     
-    useEffect(() => {
-        fetchData();
-    })
+    // useEffect(() => {
+    //     console.log("child component mounted");
+    //     fetchData();
+    // }, []) // unless empty array is passed, it will keep on calling the API
     
     fetchData = async () => {
         const data = await fetch(RESTRAUNT_LIST_API);
@@ -22,8 +23,9 @@ const useBodyData = () => {
         setRestrauntList(restrauntCard);
         setFilteredRestrauntList(restrauntCard);
     }
+    fetchData();
     
-    
+
     return [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList];
 }
 

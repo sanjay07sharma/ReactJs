@@ -7,18 +7,21 @@ const useRestrauntMenu = (resId) => {
     
     useEffect(() => {
         fetchMenu();
-    })
+    },[])
     
     fetchMenu = async () => {
         const data = await fetch(MENU_API + resId);
         const json = await data.json();
-        // TODO : FIXME // need to return 
-        for (let i=0; i<json.data?.cards?.length; i++) {
-            let components = json.data?.cards[i]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-            if (components) {
-                // TODO : FIXME // the components here are not as expected, invetigate data inconsistency.
+        json.data?.cards.map((card) => {
+            if (card?.card?.info) {
+                setResInfo(card.card.info);
             }
-        }
+           card.groupedCard?.cardGroupMap?.REGULAR?.cards.map((item) => {
+                if (item.card.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") {
+                    setItemCards(item.card.card.itemCards);
+                }
+           })
+        });
     }
     
     return [resInfo, itemCards]

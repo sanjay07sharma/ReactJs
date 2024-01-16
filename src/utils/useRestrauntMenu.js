@@ -13,17 +13,17 @@ const useRestrauntMenu = (resId) => {
         const data = await fetch(MENU_API + resId);
         const json = await data.json();
         json.data?.cards.map((card) => {
-            if (card?.card?.info) {
-                setResInfo(card.card.info);
+            if (card?.card?.card?.info) {
+                setResInfo(card.card.card.info);
             }
            card.groupedCard?.cardGroupMap?.REGULAR?.cards.map((item) => {
                 if (item.card.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") {
-                    setItemCards(item.card.card.itemCards);
+                    // FIXME : itemCards is not getting set
+                    setItemCards(item.card);
                 }
            })
         });
     }
-    
     return [resInfo, itemCards]
 }
 

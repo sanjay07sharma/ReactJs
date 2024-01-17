@@ -16,13 +16,10 @@ const useRestrauntMenu = (resId) => {
             if (card?.card?.card?.info) {
                 setResInfo(card.card.card.info);
             }
-           card.groupedCard?.cardGroupMap?.REGULAR?.cards.map((item) => {
-                if (item.card.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") {
-                    // FIXME : itemCards is not getting set
-                    setItemCards(item.card);
-                }
-           })
-        });
+            if (card.groupedCard?.cardGroupMap?.REGULAR?.cards) {
+                setItemCards(card.groupedCard.cardGroupMap.REGULAR.cards);
+            }
+        }); 
     }
     return [resInfo, itemCards]
 }

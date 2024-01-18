@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import useRestrauntMenu from '../utils/useRestrauntMenu';
-import RestrauntMenuCategory from './RestrauntMenuCategory';
+import {RestrauntMenuCategory} from './RestrauntMenuCategory';
 
 
 const RestaurantMenu = () => {
@@ -16,12 +16,7 @@ const RestaurantMenu = () => {
     
   const {name, areaName, avgRating, locality, costForTwo, cuisines } =  resInfo;
   const itemCards = RestroMenuItemCards;
-  // TODO: FIXME: itemCards issue to be resolved
-  
-  const categories = itemCards?.filter((c) => {
-    c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
-  });
-  
+
   return (
     <div className='menu text-center font-bold'>
       <h1>{name || 'No restaurant found'}</h1>
@@ -31,7 +26,7 @@ const RestaurantMenu = () => {
       <h2>{("Cuisines: " + cuisines.toString()) || 'Nothing to display'}</h2>
       <h1>Menu</h1>
       {
-        categories && <RestrauntMenuCategory menu={categories}/>
+        <RestrauntMenuCategory menu={itemCards}/>
       }
     </div>
   );

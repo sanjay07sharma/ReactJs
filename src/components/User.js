@@ -21,7 +21,7 @@ const User = () => {
     const { name , location , avatar_url } = info;
     
     return (
-        info.length ? 
+        info?.length ? 
           <Shimmer /> :
           <div className="user-card">
             <img src={avatar_url || "Logo.png"}/>

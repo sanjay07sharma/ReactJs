@@ -13,9 +13,6 @@ export const Body = () => {
     const online = useOnlineStatus();
     const promotedRestrauntList = withPromtedLabel(filteredRestrauntList);
     
-    useEffect(() => {
-        console.log("Body component mounted");
-    }, [])
 
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
         <div className="body">
@@ -24,11 +21,11 @@ export const Body = () => {
                     <input className="m-4 p-4 w-80 border-solid border-black py-2" type="text" placeholder="Search for restraunts" value={searchText} onChange={ (e) => setSearchText(e.target.value) }/>
                     <button className="search-btn bg-green-100 m-4 px-4 py-2 rounded-lg" onClick={ () => {
                         const filteredRestrauntList = restrauntList?.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                        setFilteredRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : setFilteredRestrauntList(''));
+                        setFilteredRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : setFilteredRestrauntList(''));
                     }}>Search</button>
                     <button className="filter-btn bg-gray-100 m-4 px-4 py-2 rounded-lg" onClick={() =>{
                         const filteredRestrauntList = restrauntList?.filter((list) => list.info.avgRating > 4 );
-                        setRestrauntList(filteredRestrauntList.length ? filteredRestrauntList : restrauntList);
+                        setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                     }}>Top Rated Restraunts</button>
                 </div>
             </div>

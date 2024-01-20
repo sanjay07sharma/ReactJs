@@ -1,19 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { RESTRAUNT_LIST_API } from '../utils/constants';
 
 const useBodyData = () => {
     const [restrauntList, setRestrauntList] = useState([]); // resList or data from an API
     const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
     
-    // useEffect(() => {
-    //     console.log("child component mounted");
-    //     fetchData();
-    // }, []) // unless empty array is passed, it will keep on calling the API
-    
     fetchData = async () => {
         const data = await fetch(RESTRAUNT_LIST_API);
         const json = await data.json();
-        // Swggr API has a bug, it is not returning the correct data.
         let restrauntCard;
         for (let i=0; i<json?.data?.cards.length; i++) {
             if (json?.data?.cards[i]?.card?.card?.gridElements) {
@@ -24,7 +18,6 @@ const useBodyData = () => {
         setFilteredRestrauntList(restrauntCard);
     }
     fetchData();
-    
 
     return [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList];
 }

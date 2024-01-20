@@ -1,5 +1,5 @@
 import { RestrauntCard, withPromtedLabel } from "./RestrauntCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useBodyData from "../utils/useBodyData";
@@ -13,7 +13,6 @@ export const Body = () => {
     const online = useOnlineStatus();
     const promotedRestrauntList = withPromtedLabel(filteredRestrauntList);
     
-
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
         <div className="body">
             <div className="filter flex">

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useRestrauntMenu from '../utils/useRestrauntMenu';
 import {RestrauntMenuCategory} from './RestrauntMenuCategory';
 
@@ -26,7 +26,7 @@ const RestaurantMenu = () => {
       <h2>{("Cuisines: " + cuisines.toString()) || 'Nothing to display'}</h2>
       <h1>Menu</h1>
       {
-        <RestrauntMenuCategory menu={itemCards}/>
+        <Link><RestrauntMenuCategory menu={itemCards}/></Link>
       }
     </div>
   );

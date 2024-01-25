@@ -1,16 +1,20 @@
 
-const ItemList = (items) => {
-    console.group(items)
-    //TODO: items.map is not function datat is wronfg investiagte it 
+const ItemList = ({...items}) => {
     return (
         <div>
-            {items.map((item) => (
-                <div key={item.card.info.id}>
-                    
-                </div>
-            ))}
+            {items.item.map((item) => {
+                return (
+                    <div key={item.card.info.id}>
+                        <h3>{item.card.info.name}</h3>
+                        <p>{item.card.info.price}</p>
+                        <p>{item.card.info.description}</p>
+                        <img src={item.card.info.image} alt={item.card.info.title} />
+                    </div>
+                )
+            })}  
         </div>
-    );
+    )
+    
 }
 
 export default ItemList;

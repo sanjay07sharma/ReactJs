@@ -16,6 +16,12 @@ const RestaurantMenu = () => {
     
   const {name, areaName, avgRating, locality, costForTwo, cuisines } =  resInfo;
   const itemCards = RestroMenuItemCards;
+  const category = itemCards.filter((item, index) => {
+    if (item.card.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") {
+      // FIXME: displays and closes the accordian at the same time.
+      return  item.card.card;
+    }
+  });
 
   return (
     <div className='menu text-center font-bold'>
@@ -26,7 +32,7 @@ const RestaurantMenu = () => {
       <h2>{("Cuisines: " + cuisines.toString()) || 'Nothing to display'}</h2>
       <h1>Menu</h1>
       {
-        <Link><RestrauntMenuCategory menu={itemCards}/></Link>
+        <Link><RestrauntMenuCategory menu={category}/></Link>
       }
     </div>
   );

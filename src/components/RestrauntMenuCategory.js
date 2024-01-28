@@ -5,7 +5,6 @@ export const RestrauntMenuCategory = ({menu}) => {
   const handleClick = () => {
     setShowItems(!showItem);
   }
-  
   return (
     <div>
         {/* Accordian Header */}

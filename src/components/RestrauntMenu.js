@@ -10,6 +10,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const [resInfo, RestroMenuItemCards] = useRestrauntMenu(resId);
   
+  const [showIndex, setShowIndex] = useState(0);
+  
   if (resInfo === null) {
     return <Shimmer/>;
   }
@@ -18,7 +20,6 @@ const RestaurantMenu = () => {
   const itemCards = RestroMenuItemCards;
   const category = itemCards.filter((item) => {
     if (item.card.card['@type'] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory") {
-      // FIXME: displays and closes the accordian at the same time.
       return  item.card.card.itemCards;
     }
   });
@@ -31,8 +32,12 @@ const RestaurantMenu = () => {
       <h2>{("Cuisines: " + cuisines.toString()) || 'Nothing to display'}</h2>
       <h1>Menu</h1>
       {
-        category.map((category) => {
-          return <RestrauntMenuCategory menu={category}/>
+        category.map((category, index) => {
+          return <RestrauntMenuCategory 
+                  menu={category}
+                  showItems = {index === showIndex ? true : false}
+                  setShowIndex = {() => setShowIndex(index)} // this here changes the state of parent componentfrom child component
+                />
         })
       }
     </div>

@@ -1271,3 +1271,13 @@ and boom — you've got a single source of truth so you can make changes in one 
  Less Control:
  Developers who prefer a more fine-grained control over the styles may find Tailwind's utility-first approach limiting, as it may not offer the same level of control as writing custom CSS..	
 
+// Props drilling
+
+React is one way data stream say i need to pass dummy data from RestrauntMenu to ItemList i need to follow
+RestrauntMenu (passed as props)---> Restrauntategory(recieve the prop and pass it to) ---->ItemList(recieve and use it)
+
+But what if the component tree is too nested ??
+    : In such case react has something called as `React Context`
+
+
+is context , env, global var is same thing?

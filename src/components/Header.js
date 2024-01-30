@@ -1,11 +1,13 @@
 import { LOGO_URL } from "../utils/constants"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 export const Header = () => {
     const [btnName, setBtnName] = useState("Login");
     const online = useOnlineStatus();
+    const {  defaultUser } = useContext(UserContext);
 
     // if no dependency array is passed, useEffect will be called on every re-render
     // if empty dependency array is passed, useEffect will be called only once
@@ -35,8 +37,9 @@ export const Header = () => {
                         setBtnName("Logout") : setBtnName("Login");
                 }}>
                 {btnName}
-                </button>    
+                </button>
                 </li>
+                <li className="px-4 font-bold">{defaultUser}</li>
             </ul>
         </div>
     </div>)

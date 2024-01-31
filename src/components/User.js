@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
+import UserContext from '../utils/UserContext';
 
 const User = () => {
     const [info , setinfo] = useState([]); // for functinal comoonent we use useState hook like this.
@@ -24,6 +25,12 @@ const User = () => {
         info?.length ? 
           <Shimmer /> :
           <div className="user-card">
+            <div>
+                Logged in User :
+                <UserContext.Consumer>
+                    {(user) => <h1 className='text-lg font-bold'>{user.defaultUser}</h1>}
+                </UserContext.Consumer>
+            </div>
             <img src={avatar_url || "Logo.png"}/>
             <h3>Name: {name || "Sanjay"} </h3>
             <h3>Location: {location || "Gandhinagar"}</h3>

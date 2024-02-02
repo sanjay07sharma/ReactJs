@@ -1,10 +1,10 @@
 import { RestrauntCard, withPromtedLabel } from "./RestrauntCard";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useBodyData from "../utils/useBodyData";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import UserContext from "../utils/UserContext";
 export const Body = () => {
 
     //state variable
@@ -12,6 +12,7 @@ export const Body = () => {
     const [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList] = useBodyData();
     const online = useOnlineStatus();
     const promotedRestrauntList = withPromtedLabel(filteredRestrauntList);
+    const {setUserName, loggedInUser} = useContext(UserContext);
     
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
         <div className="body">
@@ -26,6 +27,11 @@ export const Body = () => {
                         const filteredRestrauntList = restrauntList?.filter((list) => list.info.avgRating > 4 );
                         setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                     }}>Top Rated Restraunts</button>
+                    <label className="text-lg font-bold p-2">UserName</label>
+                    <input className="border border-black p-2 m-4" 
+                    value={loggedInUser}
+                    onChange={(e) => setUserName(e.target.value)}>
+                    </input>
                 </div>
             </div>
             <div className="res-container flex flex-wrap">

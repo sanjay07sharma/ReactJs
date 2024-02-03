@@ -1281,3 +1281,43 @@ But what if the component tree is too nested ??
 
 
 is context , env, global var is same thing?
+
+// Redux vs React
+
+React:
+
+React is a JavaScript library for building user interfaces. It's maintained by Facebook and a community of developers. React focuses on the "view" part of the application, providing a way to structure UI components and manage their state efficiently.
+React allows developers to create reusable UI components that can be composed together to build complex user interfaces.
+React uses a virtual DOM (Document Object Model) to efficiently update the UI in response to changes in application state, resulting in better performance compared to traditional DOM manipulation.
+Redux:
+
+Redux is a predictable state container for JavaScript applications. It's often used with React, but it can be used with other libraries or frameworks as well.
+Redux provides a centralized store to manage the state of your entire application. This makes it easier to manage state changes in large applications and enables predictable state management through a strict unidirectional data flow.
+Redux works well with React because React components can subscribe to the Redux store, allowing them to access and update the application state as needed. This helps in building more maintainable and scalable applications, especially as they grow in complexity.
+Using it make applicaton easier to debug
+
+Predictable
+Redux helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
+
+Centralized
+Centralizing your application's state and logic enables powerful capabilities like undo/redo, state persistence, and much more.
+
+Debuggable
+The Redux DevTools make it easy to trace when, where, why, and how your application's state changed. Redux's architecture lets you log changes, use "time-travel debugging", and even send complete error reports to a server.
+
+Flexible
+Redux works with any UI layer, and has a large ecosystem of addons to fit your needs.
+
+In our case how our cart value will change using redux ?
+
+In our Menu card --> when we clcik on add button --> this will get data from our redux store.
+
+we have something called slices in reducx store,---> these are logical partitions, for example cart slice, user slice ...etc
+
+so qn how can we add data to thT slice?
+ 
+we cannot directly add data to our slices ---> we make some triggers which dispatches an action ---> which calls an function
+this function will modify that slice., this function is known as 'reducer'.
+
+how will i recieve data form redux slice ?
+---> we will use something called as 'selector' ---> this selector will conatain the data which will update our app --> this read is caled 'subscribing to the store'

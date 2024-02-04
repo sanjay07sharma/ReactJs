@@ -8,6 +8,7 @@ import ErrorPage from "./components/Error";
 import RestaurantMenu from "./components/RestrauntMenu";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import { createRoot } from 'react-dom/client';
+import { Provider } from "react-redux";
 
 // RouterProvider is a context provider that provides routing context to all descendants.
 
@@ -30,6 +31,7 @@ const Grocery = lazy(() => import('./components/Grocery')); // lazy loading
 import { Outlet } from "react-router-dom";
 import Grocery from "./components/Grocery";
 import UserContext from "./utils/UserContext";
+import appStore from "./utils/appStore";
 const AppLayout = () => {
     
     // Autentication logic
@@ -44,12 +46,14 @@ const AppLayout = () => {
     
     
     return (
+        <Provider store={appStore}>
         <UserContext.Provider value={{ defaultUser : userName, setUserName}}>
             <div>
                 <Header/>
                 <Outlet/> 
             </div>
         </UserContext.Provider>
+        </Provider>
     )
 }
 

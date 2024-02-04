@@ -64,3 +64,13 @@ Two tpyes of routing:
 - chunking
 - dynamic bundling
 - lazy loading
+
+
+# Redux Toolkit
+
+- Intall @redux/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Creat (cart slice)
+- dispatch(action)
+- Selector

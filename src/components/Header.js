@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
     const [btnName, setBtnName] = useState("Login");
@@ -14,6 +15,9 @@ export const Header = () => {
     // if dependency is [btnName], useEffect will be called only when btnName changes
     useEffect(() => {
     }, [btnName]);
+    
+    // Subscribing to the store using selector
+    const cartItems = useSelector(state => state.cart.items);
 
     return (
         <div className="flex justify-between bg-orange-50 shadow-lg">
@@ -27,7 +31,7 @@ export const Header = () => {
                 <li className="px-4"><Link to="/about">About Us</Link></li>
                 <li className="px-4"><Link to="/contact">Contact Us</Link></li>
                 <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-                <li className="checkout-card px-4"> <Link to="/cart">Cart</Link> 0 </li>
+                <li className="checkout-card px-4 font-bold"> <Link to="/cart">Cart-( </Link> {cartItems.length} items) </li>
                 <li>
                 <button 
                 className="login-btn"

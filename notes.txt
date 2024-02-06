@@ -1321,3 +1321,11 @@ this function will modify that slice., this function is known as 'reducer'.
 
 how will i recieve data form redux slice ?
 ---> we will use something called as 'selector' ---> this selector will conatain the data which will update our app --> this read is caled 'subscribing to the store'
+
+
+what is the difference between  ?
+    -  onClick={
+                    handleAddItem
+                    handleAddItem(items)
+                    () => handleAddItem
+                }

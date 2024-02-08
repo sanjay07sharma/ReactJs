@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -14,8 +14,12 @@ const cartSlice = createSlice({
                 const newState = [...state]
                 newState.items.push(action.payload);
                 return newState;
-                
+
                 Now in Redux Toolkit => We have to mutate the state.
+                Redux uses immer behnd he scenes.
+                Immer is a library that helps us to mutate the state.
+                Immer is used by Redux Toolkit to handle the state.
+
             */
             state.items.push(action.payload)
         },
@@ -23,7 +27,18 @@ const cartSlice = createSlice({
             state.items.pop();
         },
         clearCart: (state) => {
+            console.log(state);
+            console.log(current(state));
+            // if i do
+            state = [];
+            console.log(state);
+            // it just change the value of state to an empty array but it does not change the value of state.items
+            // this is the example of how we can mutate the state.
+            // state = [] is not a mutation, but state.items = [] is a mutation.
             state.items.length = 0;
+            
+            // RTK says that we can mutate the state or return a new state.
+            // so by doing return [item : []] will also mutate the state..
         }
     } 
 });

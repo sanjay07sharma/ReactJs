@@ -18,15 +18,25 @@ export const Body = () => {
         <div className="body">
             <div className="filter flex">
                 <div className="search m-4 p-4">
-                    <input className="m-4 p-4 w-80 border-solid border-black py-2" type="text" placeholder="Search for restraunts" value={searchText} onChange={ (e) => setSearchText(e.target.value) }/>
-                    <button className="search-btn bg-green-100 m-4 px-4 py-2 rounded-lg" onClick={ () => {
+                    <input className="m-4 p-4 w-80 border-solid border-black py-2" type="text" placeholder="Search for restraunts"
+                    value={searchText}
+                    onChange={
+                        (e) => setSearchText(e.target.value)
+                    }/>
+
+                    <button className="search-btn bg-green-100 m-4 px-4 py-2 rounded-lg"
+                    onClick={ () => {
+                        // Doesnot produce expected result
                         const filteredRestrauntList = restrauntList?.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                        setFilteredRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : setFilteredRestrauntList(''));
+                        setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : setRestrauntList(''));
                     }}>Search</button>
-                    <button className="filter-btn bg-gray-100 m-4 px-4 py-2 rounded-lg" onClick={() =>{
+
+                    <button className="filter-btn bg-gray-100 m-4 px-4 py-2 rounded-lg"
+                    onClick={() => {
                         const filteredRestrauntList = restrauntList?.filter((list) => list.info.avgRating > 4 );
                         setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                     }}>Top Rated Restraunts</button>
+
                     <label className="text-lg font-bold p-2">UserName</label>
                     <input className="border border-black p-2 m-4" 
                     value={loggedInUser}

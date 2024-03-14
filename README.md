@@ -74,3 +74,9 @@ Two tpyes of routing:
 - Creat (cart slice)
 - dispatch(action)
 - Selector
+
+
+#Types of testing a developer can do
+- Unit testting
+- Integration testing
+- End to end testing e2e

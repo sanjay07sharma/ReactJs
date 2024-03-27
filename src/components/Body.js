@@ -26,15 +26,18 @@ export const Body = () => {
 
                     <button className="search-btn bg-green-100 m-4 px-4 py-2 rounded-lg"
                     onClick={ () => {
-                        // Doesnot produce expected result
-                        const filteredRestrauntList = restrauntList?.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-                        setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : setRestrauntList(''));
+                        const filteredRestrauntList = restrauntList?.filter((res) => {
+                            return res.info.cuisines.some(element => element.toLowerCase() === searchText.toLowerCase());
+                        });
+                        setFilteredRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                     }}>Search</button>
 
                     <button className="filter-btn bg-gray-100 m-4 px-4 py-2 rounded-lg"
                     onClick={() => {
-                        const filteredRestrauntList = restrauntList?.filter((list) => list.info.avgRating > 4 );
-                        setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
+                        const filteredRestrauntList = restrauntList?.filter((list) => {
+                            return list.info.avgRating > 4.1;   
+                        });
+                        setFilteredRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                     }}>Top Rated Restraunts</button>
 
                     <label className="text-lg font-bold p-2">UserName</label>

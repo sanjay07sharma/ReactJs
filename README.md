@@ -80,3 +80,12 @@ Two tpyes of routing:
 - Unit testting
 - Integration testing
 - End to end testing e2e
+
+
+#Setting up testing in our app
+- Installed react-testing libray
+- Installed jest
+- Installed babel depenncies
+- Configure babel
+- Configure parcel config file to disable default bable transplation
+- To run --> npm run test

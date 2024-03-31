@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/sanjay07sharma/ReactJs#readme",
   "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "@testing-library/react": "^14.2.2",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
     "postcss": "^8.4.31",
     "process": "^0.11.10",
     "tailwindcss": "^3.3.5"

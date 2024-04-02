@@ -89,3 +89,5 @@ Two tpyes of routing:
 - Configure babel
 - Configure parcel config file to disable default bable transplation
 - To run --> npm run test
+- Jest configuration
+- Install jsdom library (to be installed separaely for jest 28 and above)

@@ -1369,3 +1369,7 @@ but we think many users will benefit from RTK Query's data fetching and caching 
     It focuses on determining the correctness of the interface. The purpose of integration testing is to expose faults in the
     interaction between integrated units. Once all the modules have been unit-tested, integration testing is performed.
 - End to end testing e2e testing - tests whole flow right from user enters our app to while it leaves.
+
+
+["@babel/preset-react", { "runtime": "automatic" }], is helping testing library to convert that jsx to  html so tat it can read
+properly

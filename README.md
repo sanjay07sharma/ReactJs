@@ -91,3 +91,6 @@ Two tpyes of routing:
 - To run --> npm run test
 - Jest configuration
 - Install jsdom library (to be installed separaely for jest 28 and above)
+- Install preset-react to make Jsx work in test cases.
+- Include @babel/preset-react to my babel config.
+- Include @testing-library/jest-dom 

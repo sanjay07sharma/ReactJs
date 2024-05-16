@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 describe("Contact Component", () => {
-    test("should render the contactus component", () =>{
+    it("should render the contactus component", () =>{
         render(<Contact/>);
         const button = screen.getByRole("button");
         expect(button).toBeInTheDocument();

@@ -1373,3 +1373,11 @@ but we think many users will benefit from RTK Query's data fetching and caching 
 
 ["@babel/preset-react", { "runtime": "automatic" }], is helping testing library to convert that jsx to  html so tat it can read
 properly
+
+- Cant render header component as it uses </Link> which is a functionality of the react-router dom, so we need something that
+support routing , hence in our case <BrowserRouter> and syntax be like
+            <BrowserRouter>
+                <Provider store={appStore}>
+                    <Header/>
+                </Provider>
+            </BrowserRouter>

@@ -52,7 +52,7 @@ export const Body = () => {
                 filteredRestrauntList?.map((restro) => {
                 // Keey should always be at the parent JSX element
                 return <Link key={restro.info.id} to={"/resInfo/" + restro.info.id}> {
-                    restro.info.isPromoted ? <promotedRestrauntList resData={restro}/> :  <RestrauntCard resData={restro}/>   
+                    restro.info.isPromoted ? <promotedRestrauntList resData={restro.info}/> :  <RestrauntCard resData={restro.info}/>   
                 }</Link>;
                 })
             }

@@ -27,11 +27,8 @@ const cartSlice = createSlice({
             state.items.pop();
         },
         clearCart: (state) => {
-            console.log(state);
-            console.log(current(state));
             // if i do
             state = [];
-            console.log(state);
             // it just change the value of state to an empty array but it does not change the value of state.items
             // this is the example of how we can mutate the state.
             // state = [] is not a mutation, but state.items = [] is a mutation.

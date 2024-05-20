@@ -25,7 +25,6 @@ describe("Contact Component", () => {
     it("should load the input name inside the contactus component", () =>{
         render(<Contact/>);
         const inputBoxed = screen.getAllByRole("textbox") // screen.getAllByRole('input') this does not exist, it textbox
-        // console.log(inputBoxed); // react object HTMLElement will be returned
         expect(inputBoxed.length).toBe(3);
     });
 });

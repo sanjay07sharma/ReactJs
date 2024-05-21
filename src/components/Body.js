@@ -11,7 +11,6 @@ export const Body = () => {
     const [searchText, setSearchText] = useState('');
     const [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList] = useBodyData();
     const online = useOnlineStatus();
-    const promotedRestrauntList = withPromtedLabel(filteredRestrauntList);
     const {setUserName, loggedInUser} = useContext(UserContext);
     
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
@@ -46,16 +45,6 @@ export const Body = () => {
                     onChange={(e) => setUserName(e.target.value)}>
                     </input>
                 </div>
-            </div>
-            <div className="res-container flex flex-wrap">
-            {
-                filteredRestrauntList?.map((restro) => {
-                // Keey should always be at the parent JSX element
-                return <Link key={restro.info.id} to={"/resInfo/" + restro.info.id}> {
-                    restro.info.isPromoted ? <promotedRestrauntList resData={restro.info}/> :  <RestrauntCard resData={restro.info}/>   
-                }</Link>;
-                })
-            }
             </div>
         </div>
     )

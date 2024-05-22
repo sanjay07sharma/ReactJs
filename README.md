@@ -94,3 +94,11 @@ Two tpyes of routing:
 - Install preset-react to make Jsx work in test cases.
 - Include @babel/preset-react to my babel config.
 - Include @testing-library/jest-dom 
+
+- for fetch based
+- installed node-fetch
+- import fetch from "node-fetch"
+- jest.setup.js --> setup global fetch
+- "scripts": {
+  "test": "jest --config jest.config.js"
+}

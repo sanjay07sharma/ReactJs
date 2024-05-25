@@ -3,7 +3,6 @@ import { RESTRAUNT_LIST_API } from '../utils/constants';
 
 const useBodyData = () => {
     const [restrauntList, setRestrauntList] = useState([]); // resList or data from an API
-    const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
     
     fetchData = async () => {
         const data = await fetch(RESTRAUNT_LIST_API);
@@ -15,11 +14,10 @@ const useBodyData = () => {
             }
         }
         setRestrauntList(restrauntCard);
-        setFilteredRestrauntList(restrauntCard);
     }
     fetchData();
 
-    return [restrauntList, setRestrauntList, filteredRestrauntList, setFilteredRestrauntList];
+    return [restrauntList, setRestrauntList];
 }
 
 export default useBodyData;

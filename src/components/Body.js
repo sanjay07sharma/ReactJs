@@ -10,7 +10,6 @@ export const Body = () => {
     //state variable
     const [searchText, setSearchText] = useState('');
     const [restrauntList, setRestrauntList] = useBodyData();
-    // const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
     const online = useOnlineStatus();
     const {setUserName, loggedInUser} = useContext(UserContext);
     

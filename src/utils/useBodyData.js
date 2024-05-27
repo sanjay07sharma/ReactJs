@@ -6,7 +6,7 @@ const useBodyData = () => {
     
     useEffect(() => {
         fetchData();
-    },restrauntList);
+    },[]);
 
     fetchData = async () => {
         const data = await fetch(RESTRAUNT_LIST_API);

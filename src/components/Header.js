@@ -22,7 +22,9 @@ export const Header = () => {
     return (
         <div className="header flex justify-between bg-orange-50 shadow-lg">
         <div className="logo w-56">
-            <img className="res-img" src= {LOGO_URL}/>
+            <a href={`${window.location.href}`}>
+                <img className="res-img" src= {LOGO_URL}/>
+            </a>
         </div>
         <div className="flex items-center">
             <ul className="flex justify-between p-4 m-4">

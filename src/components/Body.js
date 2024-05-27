@@ -10,9 +10,9 @@ export const Body = () => {
     //state variable
     const [searchText, setSearchText] = useState('');
     const [restrauntList, setRestrauntList] = useBodyData();
+    const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
     const online = useOnlineStatus();
     const {setUserName, loggedInUser} = useContext(UserContext);
-    
     return restrauntList?.length === 0 ? ( <Shimmer/> ) : ( !online ? (<h1>Offline</h1>) :
         <div className="body">
             <div className="filter flex">
@@ -24,19 +24,27 @@ export const Body = () => {
                             const filteredRestrauntList = restrauntList?.filter((res) => {
                                 return res.info.cuisines.some(element => element.toLowerCase() === searchText.toLowerCase());
                             });
-                            setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
+                            setFilteredRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                         }
                     }}
                     onChange={
-                        (e) => setSearchText(e.target.value)
+                        (e) => {
+                            setSearchText(e.target.value)
+                            document.querySelector('.cross-button').style.display = e.target.value ? 'inline' : '';
+                        }
                     }/>
-
+                    <button className="cross-button bg-white m-1 p-1 hidden rounded-lg" onClick={ () => {
+                        setSearchText('');
+                        document.querySelector('.cross-button').style.display = 'none';
+                        setFilteredRestrauntList([]);
+                    }
+                    }>❌</button>
                     <button className="search-btn bg-green-100 m-4 px-4 py-2 rounded-lg"
                     onClick={ () => {
                         const filteredRestrauntList = restrauntList?.filter((res) => {
                             return res.info.cuisines.some(element => element.toLowerCase() === searchText.toLowerCase());
                         });
-                        setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
+                        setFilteredRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                     }}>Search</button>
 
                     <button className="filter-btn bg-gray-100 m-4 px-4 py-2 rounded-lg"
@@ -44,7 +52,7 @@ export const Body = () => {
                         const filteredRestrauntList = restrauntList?.filter((list) => {
                             return list.info.avgRating > 4.4;   
                         });
-                        setRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
+                        setFilteredRestrauntList(filteredRestrauntList?.length ? filteredRestrauntList : restrauntList);
                     }}>Looking for the best of the best ?</button>
 
                     <label className="text-lg font-bold p-2">UserName</label>
@@ -57,7 +65,9 @@ export const Body = () => {
             
             <div className="res-container flex flex-wrap">
                 {
-                    restrauntList?.length === 0 ? <h1>No restraunts found</h1> : restrauntList?.map((res) => {
+                    (filteredRestrauntList?.length > 0) ? filteredRestrauntList?.map((res) => {
+                        return <RestrauntCard resData={res.info}/>
+                    }) : restrauntList?.length === 0 ? <h1>No restraunts found</h1> : restrauntList?.map((res) => {
                         return <RestrauntCard resData={res.info}/>
                     })
                 }

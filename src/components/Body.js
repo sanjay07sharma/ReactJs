@@ -1,15 +1,15 @@
 import { RestrauntCard, withPromtedLabel } from "./RestrauntCard";
 import { useState, useContext } from "react";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
 import useBodyData from "../utils/useBodyData";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import DisplayBoard from "./DisplayBoard";
 export const Body = () => {
 
     //state variable
     const [searchText, setSearchText] = useState('');
-    const [restrauntList, setRestrauntList] = useBodyData();
+    const [restrauntList, setRestrauntList, displayList, setDisplayList] = useBodyData();
     const [filteredRestrauntList, setFilteredRestrauntList] = useState([]);
     const online = useOnlineStatus();
     const {setUserName, loggedInUser} = useContext(UserContext);
@@ -61,6 +61,10 @@ export const Body = () => {
                     onChange={(e) => setUserName(e.target.value)}>
                     </input>
                 </div>
+            </div>
+            
+            <div className="overflow-x-scroll m-6 p-6 flex">
+                    <DisplayBoard data={displayList}/>
             </div>
             
             <div className="res-container flex flex-wrap">

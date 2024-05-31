@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Shimmer from './Shimmer';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useRestrauntMenu from '../utils/useRestrauntMenu';
 import {RestrauntMenuCategory} from './RestrauntMenuCategory';
 

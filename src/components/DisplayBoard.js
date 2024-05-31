@@ -1,7 +1,4 @@
-
-import { Link, json } from "react-router-dom";
 import { CDN_URL, FILTER_API } from "../utils/constants";
-import { useState, useEffect } from "react";
 
 const displayAllRelated = (e) => {
     let url = e.target.src;

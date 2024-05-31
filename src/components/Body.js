@@ -1,4 +1,4 @@
-import { RestrauntCard, withPromtedLabel } from "./RestrauntCard";
+import { RestrauntCard } from "./RestrauntCard";
 import { useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import useBodyData from "../utils/useBodyData";

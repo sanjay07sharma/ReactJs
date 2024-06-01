@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { RestrauntCard } from "./RestrauntCard";
 import { useState, useContext } from "react";
 import Shimmer from "./Shimmer";
@@ -70,9 +71,9 @@ export const Body = () => {
             <div className="res-container flex flex-wrap">
                 {
                     (filteredRestrauntList?.length > 0) ? filteredRestrauntList?.map((res) => {
-                        return <RestrauntCard resData={res.info}/>
+                        return <Link to={`/resInfo/${res.info.id}`}><RestrauntCard resData={res.info}/></Link>
                     }) : restrauntList?.length === 0 ? <h1>No restraunts found</h1> : restrauntList?.map((res) => {
-                        return <RestrauntCard resData={res.info}/>
+                        return <Link to={`/resInfo/${res.info.id}`}><RestrauntCard resData={res.info}/></Link>
                     })
                 }
             </div>

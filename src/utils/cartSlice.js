@@ -28,7 +28,7 @@ const cartSlice = createSlice({
         },
         clearCart: (state) => {
             // if i do
-            state = [];
+            // state = [];
             // it just change the value of state to an empty array but it does not change the value of state.items
             // this is the example of how we can mutate the state.
             // state = [] is not a mutation, but state.items = [] is a mutation.
@@ -36,11 +36,14 @@ const cartSlice = createSlice({
             
             // RTK says that we can mutate the state or return a new state.
             // so by doing return [item : []] will also mutate the state..
+        },
+        showFilteredItems: (state, action) => {
+            state.items.push(action.payload);
         }
     } 
 });
 
 
 // export your action and reducer.
-export const {addItem, removeItem, clearCart} = cartSlice.actions;
+export const {addItem, removeItem, clearCart, showFilteredItems} = cartSlice.actions;
 export default cartSlice.reducer;

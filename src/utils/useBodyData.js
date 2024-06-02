@@ -19,6 +19,7 @@ const useBodyData = () => {
             }
             if (json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants) {
                 restrauntCard = json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants;
+                break;
             }
         }
         setDisplayList(displayCard);

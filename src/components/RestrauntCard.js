@@ -3,6 +3,7 @@ import { CDN_URL } from "../utils/constants";
 
 export const RestrauntCard = (props) => {
   // can also use destructuring
+  debugger
   const { resData } = props; // what props here actually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
   const {
     id,

@@ -64,7 +64,7 @@ export const Body = () => {
                 </div>
             </div>
             
-            <div className="overflow-x-scroll m-6 p-6 flex">
+            <div className="m-6 p-6 overflow-x-scroll w-auto h-52">
                     <DisplayBoard data={displayList}/>
             </div>
             

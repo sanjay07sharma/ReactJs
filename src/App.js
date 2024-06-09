@@ -9,6 +9,7 @@ import RestaurantMenu from "./components/RestrauntMenu";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 import { Provider } from "react-redux";
+import Login from "./components/Login";
 
 // RouterProvider is a context provider that provides routing context to all descendants.
 
@@ -93,6 +94,10 @@ const appRouter = createBrowserRouter(
                     {
                         path: "/cart",
                         element: <Cart/>
+                    },
+                    {
+                        path: "/login",
+                        element: <Login/>
                     },
                     {
                         path: "/resInfo/:resId", // this "/:resId" denotes a dynamic route

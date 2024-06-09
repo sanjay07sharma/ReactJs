@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import Login from "./Login";
 
 export const Header = () => {
     const [btnName, setBtnName] = useState("Login");
@@ -35,15 +36,12 @@ export const Header = () => {
                 <li className="px-4"><Link to="/grocery">Grocery</Link></li>
                 <li className="checkout-card px-4 font-bold"> <Link to="/cart">Cart- </Link> ({cartItems.length} items) </li>
                 <li>
-                <button 
+                <a
                 className="login-btn"
-                onClick={() => {
-                    // btnName="Logout"; // cant directly change state variable
-                    btnName === 'Login' ?
-                        setBtnName("Logout") : setBtnName("Login");
-                }}>
+                href="/login"
+                >
                 {btnName}
-                </button>
+                </a>
                 </li>
                 <li className="px-4 font-bold">{defaultUser}</li>
             </ul>

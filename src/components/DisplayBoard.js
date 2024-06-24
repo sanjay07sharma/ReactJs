@@ -13,19 +13,12 @@ const DisplayBoard = (props) => {
         setSearchText(fileName);
     }
 
-    const displayBoard = () => {
-        return props.data.map((element) => (
-            <div className="h-auto w-52 space-between rounded-full border-spacing-3 inline-block">
-                <img alt="" src={CDN_URL+element.imageId} onClick={(e) => displayAllRelated(e)}/>
-            </div>
-        ))
-    }
-
-    return (
-        <div>
-            {displayBoard()}
+    return  (
+        <div className=" w-auto flex">
+            <img className="cursor-pointer" alt="" src={CDN_URL+props.data.imageId} onClick={(e) => displayAllRelated(e)}/>
         </div>
-    );
+    )
+
 }
 
 export default DisplayBoard;

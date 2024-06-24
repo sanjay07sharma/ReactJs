@@ -64,8 +64,8 @@ export const Body = () => {
                 </div>
             </div>
             
-            <div className="m-6 p-6 overflow-x-scroll w-auto h-52">
-                    <DisplayBoard data={displayList}/>
+            <div className="flex overflow-x-scroll">
+                {displayList?.map(element => <DisplayBoard data={element}/>)}
             </div>
             
             <div className="res-container flex flex-wrap">

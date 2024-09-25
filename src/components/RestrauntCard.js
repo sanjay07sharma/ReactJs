@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { CDN_URL } from "../utils/constants";
 
-export const RestrauntCard = (props) => {
-  // can also use destructuring
-  debugger
-  const { resData } = props; // what props here actually is {resName:"Sanjay Foods", cuisines:"Dosa, South Indian, Asia", stars:"4.4 stars", deliveryTime:"38 minutes delivery time"} for res casrd 1.
+export const RestrauntCard = ({ resData }) => {
   const {
     id,
     name,
@@ -14,17 +11,19 @@ export const RestrauntCard = (props) => {
     cloudinaryImageId,
   } = resData;
 
-  const [order, updateOrder] = useState([]); // Try to store value of selected item and use it for card.
-      // Todo: add item to plate and update on card
+  const [order, updateOrder] = useState([]);
+
   return (
-    <div className="res-card m-4 p-4 w-[250px] l-[450px] rounded-lg bg-gray-100 hover:w-[300px]">
-      <img className="res-logo rounded-lg" src={CDN_URL + cloudinaryImageId} />
-      <h3 className="font-bold py-4 text-lg">{name}</h3>
-      <h4 className="cuisines">{cuisines.join(", ")}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{costForTwo}</h4>
+    <div className="res-card m-4 p-4 w-[250px] l-[450px] rounded-lg bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out transform hover:scale-105">
+      <img className="res-logo rounded-lg w-full h-40 object-cover" src={CDN_URL + cloudinaryImageId} alt={name} />
+      <div className="p-4">
+        <h3 className="font-bold text-xl mb-2">{name}</h3>
+        <h4 className="text-gray-600 mb-2">{cuisines.join(", ")}</h4>
+        <div className="flex justify-between items-center">
+          <h4 className="text-yellow-500 font-semibold">{avgRating} ★</h4>
+          <h4 className="text-gray-800">{costForTwo}</h4>
+        </div>
+      </div>
     </div>
   );
 };
-
-// Higher Order Components

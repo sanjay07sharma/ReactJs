@@ -1,6 +1,7 @@
 import ItemList from "./ItemList";
 export const RestrauntMenuCategory = ({menu, showItems, setShowIndex}) => {
   const handleClick = () => {
+    debugger
     setShowIndex();
   }
   return (

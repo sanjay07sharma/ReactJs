@@ -14,7 +14,7 @@ const DisplayBoard = (props) => {
     }
 
     return  (
-        <div className=" w-auto flex">
+        <div className=" w-auto flex overflow-hidden">
             <img className="cursor-pointer" alt="" src={CDN_URL+props.data.imageId} onClick={(e) => displayAllRelated(e)}/>
         </div>
     )

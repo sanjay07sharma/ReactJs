@@ -2,7 +2,7 @@ import { CDN_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
 
-const ItemList = (items) => {
+const ItemList = (items, setTotalAmount) => {
 
     const dispatch = useDispatch();
 
@@ -10,10 +10,11 @@ const ItemList = (items) => {
         // Dispatching an action to add item to cart
         dispatch(addItem(item));
     }
-
+    const itemList = items.item || items.items;
+    // items.items ? setTotalAmount(items.items.reduce((total, item) => total + (item.card.info.price ? (item.card.info.price)/100 : (item.card.info.defaultPrice)/100), 0)) : 0;
     return (
         <div>
-            {items.item.map((item) => {
+            {itemList.map((item) => {
                 return (
                     <div key={item.card.info.id} className="p-2 m-2  border-b-2 text-left flex justify-between">
                         <div className="w-9/12">

@@ -8,6 +8,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector(store => store.cart.items);
     const [orderDetails, setOrderDetails] = useState(null);
+    const [totalAmount, setTotalAmount] = useState(0);
 
     // Calculate total amount
     const totalAmount = cartItems.reduce((total, item) => total + (item.price || 0), 0);
@@ -90,7 +91,7 @@ const Cart = () => {
                     {/* Order Details Section */}
                     <div className="bg-white p-6 rounded-lg shadow-md mb-6">
                         <h2 className="text-xl font-semibold mb-4">Order Details</h2>
-                        <ItemList items={cartItems} />
+                        <ItemList items={cartItems} setTotalAmount={setTotalAmount}/>
                         <div className="flex justify-between items-center mt-4 pt-4 border-t">
                             <button 
                                 className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"

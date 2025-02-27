@@ -30,7 +30,6 @@ import Login from "./components/Login";
 const Grocery = lazy(() => import('./components/Grocery')); // lazy loading
 
 import { Outlet } from "react-router-dom";
-import Grocery from "./components/Grocery";
 import UserContext from "./utils/UserContext";
 import appStore from "./utils/appStore";
 const AppLayout = () => {
